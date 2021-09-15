@@ -1,20 +1,20 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import LoginSS from "./pages/sanseong/Login/Login";
-import MainSS from "./pages/sanseong/Main/Main";
+import LoginSS from './pages/sanseong/Login/Login';
+import MainSS from './pages/sanseong/Main/Main';
 
-import LoginTY from "./pages/beforesun/Login/Login";
-import MainTY from "./pages/beforesun/Main/Main";
+import LoginTY from './pages/beforesun/Login/Login';
+import MainTY from './pages/beforesun/Main/Main';
 
-import LoginD from "./pages/dan/Login/Login";
-import MainD from "./pages/dan/Main/Main";
+import LoginD from './pages/dan/Login/Login';
+import MainD from './pages/dan/Main/Main';
 
-import LoginHH from "./pages/heyho/Login/Login";
-import MainHH from "./pages/heyho/Main/Main";
+import LoginHH from './pages/heyho/Login/Login';
+import MainHH from './pages/heyho/Main/Main';
 
-import LoginYH from "./pages/yonghyun/Login/Login";
-import MainYH from "./pages/yonghyun/Main/Main";
+import LoginYH from './pages/yonghyun/Login/Login';
+import MainYH from './pages/yonghyun/Main/Main';
 
 class Routes extends React.Component {
   render() {
