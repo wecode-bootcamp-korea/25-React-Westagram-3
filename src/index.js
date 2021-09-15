@@ -2,6 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/reset.scss';
 import './styles/common.scss';
-import Nav from './components/Nav/Nav';
+import Routes from './Routes';
 
-ReactDOM.render(<Nav />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
