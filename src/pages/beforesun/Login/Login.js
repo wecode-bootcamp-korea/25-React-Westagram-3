@@ -9,25 +9,38 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      color: 'red',
+      Id: '',
+      Pw: '',
     };
   }
+  handleIdInput = e => {
+    this.setState({
+      Id: e.target.value,
+    });
+  };
+  handlePwInput = e => {
+    this.setState({
+      Pw: e.target.value,
+    });
+  };
   render() {
     return (
       <main className="main-box">
         <div className="login-container">
-          <span className="Login-logo">Sunstagram</span>
+          <span className="Login-logo">Westagram</span>
           <input
             type="text"
             className="input"
             id="id-email"
             placeholder="전화번호, 사용자 이름 또는 이메일"
+            onChange={this.handleIdInput}
           />
           <input
             type="password"
             className="input"
             id="password"
             placeholder="비밀번호"
+            onChange={this.handlePwInput}
           />
           <button
             type="button"
