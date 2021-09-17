@@ -13,14 +13,9 @@ class Login extends React.Component {
       Pw: '',
     };
   }
-  handleIdInput = e => {
+  handleInput = e => {
     this.setState({
-      Id: e.target.value,
-    });
-  };
-  handlePwInput = e => {
-    this.setState({
-      Pw: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
   render() {
@@ -33,14 +28,16 @@ class Login extends React.Component {
             className="input"
             id="id-email"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={this.handleIdInput}
+            onChange={this.handleInput}
+            name="Id"
           />
           <input
             type="password"
             className="input"
             id="password"
             placeholder="비밀번호"
-            onChange={this.handlePwInput}
+            onChange={this.handleInput}
+            name="Pw"
           />
           <button
             type="button"
