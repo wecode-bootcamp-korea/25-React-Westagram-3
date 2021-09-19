@@ -11,17 +11,37 @@ class Login extends React.Component {
     this.state = {
       Id: '',
       Pw: '',
+      isValid: '',
+      disabled: '',
     };
   }
   handleInput = e => {
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.handleButton();
+      }
+    );
+  };
+
+  handleButton = () => {
+    const { Id, Pw } = this.state;
     this.setState({
-      [e.target.name]: e.target.value,
+      isValid: Id.includes('@') && Pw.length >= 5,
     });
+  };
+  onCheckEnter = e => {
+    if (e.key === 'Enter' && this.state.isValid) {
+      this.goToMain();
+    }
   };
   render() {
     return (
       <main className="main-box">
-        <div className="login-container">
+        <div className="login-container" onKeyPress={this.onCheckEnter}>
           <span className="Login-logo">Westagram</span>
           <input
             type="text"
@@ -42,8 +62,9 @@ class Login extends React.Component {
           <button
             type="button"
             onClick={this.goToMain}
-            className="button button-off"
+            className={this.state.isValid ? 'button' : 'button-off'}
             id="login-button"
+            disabled={!this.state.isValid}
           >
             로그인
           </button>

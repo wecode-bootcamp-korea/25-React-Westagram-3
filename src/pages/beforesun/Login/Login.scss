@@ -40,8 +40,14 @@
     border-radius: 5px;
   }
   .button-off {
+    width: 270px;
+    height: 30px;
+    margin: 7px 0px;
+    color: white;
     background-color: #b9dffc;
-    /* cursor: not-allowed; */
+    border: 0px solid;
+    border-radius: 5px;
+    cursor: not-allowed;
   }
   /* .login-container>div {
     font-size: 13px;
