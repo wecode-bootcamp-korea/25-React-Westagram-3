@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
+$back-color: #ffffff;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+html {
+  height: 100%;
+
+  body {
+    position: relative;
+    height: 100%;
+
+    .mainBox {
+      @include flex-center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      height: 380px;
+      padding: 10px 0;
+      transform: translate(-50%, -50%);
+      background-color: $back-color;
+
+      .logo {
+        position: absolute;
+        margin: 22px auto 12px;
+
+        h1 {
+          font-size: 52px;
+          font-family: 'Grand Hotel', cursive;
+          background-color: $back-color;
+        }
+      }
+
+      .loginBox {
+        @include flex-center;
+        background-color: $back-color;
+
+        .loginBtn {
+          width: 100%;
+          height: 35px;
+          margin-top: 15px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          color: $back-color;
+          background-color: #0095f6;
+          font-size: 14px;
+          @include flex-center;
+          align-items: center;
+          text-decoration: none;
+
+          &:disabled {
+            background-color: #c0dffd;
+          }
+        }
+
+        .idPw {
+          position: absolute;
+          width: 260px;
+          height: 150px;
+          margin-top: 130px;
+          background-color: $back-color;
+
+          .inputList {
+            background-color: $back-color;
+
+            .inputBox {
+              width: 100%;
+              height: 40px;
+              margin-top: 8px;
+              border: 1px solid #dbdbdb;
+              border-radius: 3px;
+              background-color: #fafafa;
+
+              input {
+                position: relative;
+                width: 80%;
+                height: 40px;
+                padding: 0 8px 1px 8px;
+                border-color: transparent;
+                border-radius: 3px;
+                color: #999999;
+                background-color: transparent;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      .findPw {
+        display: flex;
+        position: absolute;
+        bottom: 25px;
+
+        a {
+          background-color: $back-color;
+          color: #3c618a;
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
