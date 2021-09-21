@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.scss';
 import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      canLogin: false,
+      id: '',
+      pw: '',
+    };
   }
 
   handleIdInput = e => {
     this.setState({ id: e.target.value });
+    this.isLogin();
   };
 
   handlePwInput = e => {
     this.setState({ pw: e.target.value });
+    this.isLogin();
+  };
+
+  isLogin = () => {
+    if (this.state.id.includes('@') && this.state.pw.length > 4) {
+      this.setState({
+        canLogin: true,
+      });
+    } else {
+      this.setState({
+        canLogin: false,
+      });
+    }
   };
 
   render() {
     console.log(this.state);
+
+    const { canLogin } = this.state;
+
     return (
       <>
         <div className="mainBox">
@@ -44,7 +65,10 @@ class Login extends React.Component {
                   />
                 </div>
                 <div className="loginBox">
-                  <button className="loginBtn" onClick={this.goToMain}>
+                  <button
+                    className={canLogin ? 'loginBtn' : 'loginXBtn'}
+                    onClick={this.goToMain}
+                  >
                     로그인
                   </button>
                   {/* <Link to="/main" className="loginBtn" disabled>로그인</Link> */}

@@ -41,6 +41,20 @@ html {
         @include flex-center;
         background-color: $back-color;
 
+        .loginXBtn {
+          width: 100%;
+          height: 35px;
+          margin-top: 15px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          color: $back-color;
+          background-color: #c0dffd;
+          font-size: 14px;
+          @include flex-center;
+          align-items: center;
+          text-decoration: none;
+        }
+
         .loginBtn {
           width: 100%;
           height: 35px;
@@ -48,15 +62,11 @@ html {
           border: 1px solid transparent;
           border-radius: 3px;
           color: $back-color;
-          background-color: #0095f6;
           font-size: 14px;
           @include flex-center;
           align-items: center;
           text-decoration: none;
-
-          &:disabled {
-            background-color: #c0dffd;
-          }
+          background-color: #0095f6;
         }
 
         .idPw {
