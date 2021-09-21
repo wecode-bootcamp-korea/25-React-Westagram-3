@@ -26,13 +26,14 @@ class Login extends React.Component {
       }
     );
   };
-
+  // 유효성 검사
   handleButton = () => {
     const { Id, Pw } = this.state;
     this.setState({
       isValid: Id.includes('@') && Pw.length >= 5,
     });
   };
+  // 아이디,비밀번호 창에서 엔터 치면 로그인 버튼 클릭
   onCheckEnter = e => {
     if (e.key === 'Enter' && this.state.isValid) {
       this.goToMain();
@@ -40,7 +41,7 @@ class Login extends React.Component {
   };
   render() {
     return (
-      <main className="main-box">
+      <main className="login-box">
         <div className="login-container" onKeyPress={this.onCheckEnter}>
           <span className="Login-logo">Westagram</span>
           <input

@@ -1,0 +1,108 @@
+/* 피드 옆 사이드 */
+.side {
+  position: fixed;
+  width: 293px;
+  margin-top: 65px;
+  margin-left: 650px;
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+.side-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+  > a > img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+  }
+}
+.side-my {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  font-size: 14px;
+  > {
+    a {
+      color: black;
+      font-weight: bold;
+    }
+    span {
+      color: #8e8e8e;
+      font-size: 13px;
+    }
+  }
+}
+.story-box {
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+  border: 1px solid rgb(219, 219, 219);
+  background-color: white;
+  font-size: 14px;
+  overflow: hidden;
+}
+.story-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 15px 7px;
+  > {
+    span {
+      color: #8e8e8e;
+    }
+    button {
+      border: 0;
+      background-color: white;
+      font-weight: 600;
+    }
+  }
+}
+.side-story {
+  display: flex;
+  align-items: center;
+  margin: 5px 15px 8px;
+  > {
+    a > img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50px;
+    }
+    button {
+      position: relative;
+      left: 24px;
+      color: #0095f6;
+      background-color: white;
+      border: 0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+}
+.friend-box {
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+  margin-top: 13px;
+  border: 1px solid rgb(219, 219, 219);
+  background-color: white;
+  font-size: 14px;
+}
+.footer {
+  margin-top: 13px;
+}
+.footer-text1,
+.footer-text2,
+.footer-text3 {
+  color: #c7c7c7;
+  font-size: 12px;
+  > a {
+    color: #c7c7c7;
+    font-size: 12px;
+  }
+}
+.footer-text4 {
+  margin-top: 15px;
+  color: #c7c7c7;
+  font-size: 12px;
+}
