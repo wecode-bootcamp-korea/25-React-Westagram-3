@@ -1,5 +1,6 @@
 import React from 'react';
 import './Feeds.scss';
+import Comment from './Comment/Comment';
 class Feeds extends React.Component {
   constructor() {
     super();
@@ -115,23 +116,7 @@ class Feeds extends React.Component {
               />
             </div>
             <ul>
-              {this.state.comments.map((text, i) => {
-                return (
-                  <li className="comment-second" key={i + 1}>
-                    <div className="yous">
-                      <a className="you-name" href="#">
-                        ty_050
-                      </a>
-                      <span className="comment-writ"> {text.comment} </span>
-                    </div>
-                    <img
-                      alt="heart-like"
-                      className="heart-like"
-                      src="/images/beforesun/heart.png"
-                    />
-                  </li>
-                );
-              })}
+              <Comment comments={this.state.comments} />
             </ul>
             <div className="empty-comment"></div>
             <div className="comment-time">
