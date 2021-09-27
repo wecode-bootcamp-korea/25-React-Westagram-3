@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
+import Comment from '../Main/Feed/Comment';
 import './Main.scss';
 
 class Main extends React.Component {
@@ -331,30 +332,14 @@ class Main extends React.Component {
                   className="list_comment"
                   onChange={this.addComment}
                 >
-                  <p className="txt_comment">
-                    <span>
-                      <Link to="#n" className="txt_id">
-                        follow ID
-                      </Link>
-                      <span>냐는 냥냥</span>
-                    </span>
-                    <button id="delete" type="button">
-                      X
-                    </button>
-                  </p>
                   {this.state.commentList.map((content, i) => {
                     return (
-                      <p className="txt_comment" key={i + 1}>
-                        <span>
-                          <Link to="#n" className="txt_id">
-                            follow ID
-                          </Link>
-                          <span>{content.comment}</span>
-                        </span>
-                        <button id="delete" type="button">
-                          X
-                        </button>
-                      </p>
+                      <Comment
+                        commentList={this.commentList}
+                        comment={this.comment}
+                        content={content}
+                        key={i}
+                      />
                     );
                   })}
                 </div>

@@ -411,32 +411,6 @@ div.feed_board {
   margin-bottom: 10px;
 }
 
-.txt_comment {
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.txt_comment > span {
-  flex: 9.8;
-}
-
-.txt_comment > span .txt_id {
-  margin-right: 10px;
-}
-
-.txt_comment > span span {
-  width: 100%;
-}
-
-.txt_comment button {
-  flex: 0.2;
-  color: #ddd;
-}
-
-.txt_comment button:hover {
-  color: #777;
-}
-
 .post_comment {
   display: flex;
   align-content: center;
