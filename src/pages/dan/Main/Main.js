@@ -5,6 +5,62 @@ import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+      comment: '',
+    };
+  }
+
+  // Comment state
+  textChange = event => {
+    this.setState(
+      {
+        comment: event.target.value,
+      },
+      () => {
+        this.commentValid();
+      }
+    );
+  };
+
+  // Comment validation
+  commentValid() {
+    const { comment } = this.state;
+    return comment.length > 0 ? true : false;
+  }
+
+  // Comment 추가 후 textarea 리셋
+  addComment = () => {
+    if (this.commentValid() === true) {
+      this.setState({
+        commentList: this.state.commentList.concat({
+          comment: this.state.comment,
+        }),
+        comment: '',
+      });
+    }
+  };
+
+  // 게시 button Event
+  handleButton = event => {
+    event.preventDefault();
+    this.setState(() => {
+      this.addComment();
+    });
+  };
+
+  // enter key Event
+  handleKeyPress = event => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      this.setState(() => {
+        this.addComment();
+      });
+      event.target.value = '';
+    }
+  };
+
   render() {
     return (
       <>
@@ -270,26 +326,51 @@ class Main extends React.Component {
               </section>
 
               <div className="comments">
-                <div id="listComment" className="list_comment">
+                <div
+                  id="commentList"
+                  className="list_comment"
+                  onChange={this.addComment}
+                >
                   <p className="txt_comment">
                     <span>
                       <Link to="#n" className="txt_id">
                         follow ID
                       </Link>
-                      <span>나는 냥냥</span>
+                      <span>냐는 냥냥</span>
                     </span>
                     <button id="delete" type="button">
                       X
                     </button>
                   </p>
+                  {this.state.commentList.map((content, i) => {
+                    return (
+                      <p className="txt_comment" key={i + 1}>
+                        <span>
+                          <Link to="#n" className="txt_id">
+                            follow ID
+                          </Link>
+                          <span>{content.comment}</span>
+                        </span>
+                        <button id="delete" type="button">
+                          X
+                        </button>
+                      </p>
+                    );
+                  })}
                 </div>
                 <form id="post" className="post_comment">
                   <textarea
                     id="newComment"
-                    type="in"
+                    type="input"
                     placeholder="댓글 달기..."
+                    onKeyPress={this.handleKeyPress}
+                    onChange={this.textChange}
                   ></textarea>
-                  <button id="btnPost" type="submit">
+                  <button
+                    id="btnPost"
+                    type="submit"
+                    onClick={this.handleButton}
+                  >
                     게시
                   </button>
                 </form>
