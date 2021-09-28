@@ -98,6 +98,18 @@ body {
   position: relative;
   top: -25px;
   background-color: transparent;
+  color: red;
+  font-size: 26px;
+
+  &:hover {
+    cursor: grab;
+  }
+}
+
+#redheartX {
+  position: relative;
+  top: -25px;
+  background-color: transparent;
   color: transparent;
   font-size: 26px;
 
@@ -253,7 +265,7 @@ button {
 
 .delete {
   position: absolute;
-  right: 30px;
+  right: 50px;
   width: 30px;
   font-size: 15px;
   color: transparent;
@@ -261,6 +273,27 @@ button {
 
   &:hover {
     color: black;
+    cursor: pointer;
+  }
+}
+
+#like {
+  color: red;
+  font-size: 15px;
+  position: absolute;
+  right: 20px;
+  margin-top: 2px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#dislike {
+  font-size: 15px;
+  position: absolute;
+  right: 20px;
+  margin-top: 2px;
+  &:hover {
     cursor: pointer;
   }
 }

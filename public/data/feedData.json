@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "content": "/images/yonghyun/sky.jpeg",
+    "likeNumber": "좋아요 485,222개",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "dydgus0421",
+    "content": "/images/yonghyun/feed2.jpeg",
+    "likeNumber": "좋아요 5,222개",
+    "isLiked": false
+  },
+  {
+    "id": 3,
+    "userName": "yonghyun",
+    "content": "/images/yonghyun/feed3.jpeg",
+    "likeNumber": "좋아요 22개",
+    "isLiked": true
+  },
+  {
+    "id": 4,
+    "userName": "4.21ee",
+    "content": "/images/yonghyun/feed4.jpeg",
+    "likeNumber": "좋아요 1개",
+    "isLiked": true
+  }
+]

@@ -1,159 +1,54 @@
 import React from 'react';
 import './Main.scss';
-import '../../../styles/common.scss';
-import '../../../styles/reset.scss';
-import { withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
+import Feed from './Comments/Feeds';
+import DG from './Comments/DG';
 
 class Main extends React.Component {
-  goToLogin = () => {
-    this.props.history.push('/login-YH');
-  };
+  constructor() {
+    super();
+    this.state = {
+      repl: '',
+      feedList: [],
+      replList: [],
+    };
+  }
+  componentDidMount() {
+    fetch('http://localhost:3000/data/FeedData.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feedList: data,
+        });
+      });
+
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          replList: data,
+        });
+      });
+  }
 
   render() {
+    const { replList, feedList } = this.state;
+
     return (
       <>
-        {/* <nav className="menu">
-          <div className="topMenu">
-            <div className="leftLogo">
-              <img
-                id="insta"
-                alt="instaLogo"
-                onClick={this.goToLogin}
-                src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png"
-              />
-            </div>
-            <div className="search">
-              <div className="searchInput">
-                <input
-                  className="searchBox"
-                  type="search"
-                  placeholder="검색"
-                  onFocus="this.placeholder=''"
-                  onBlur="this.placeholder='검색'"
-                />
-              </div>
-            </div>
-            <div className="rightMenu">
-              <img
-                className="like"
-                alt="compassIcon"
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-              />
-              <img
-                className="like"
-                alt="heartIcon"
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-              />
-              <img
-                className="like"
-                alt="peopleIcon"
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-              />
-              <img
-                className="like"
-                id="more"
-                alt="profileImageIcon"
-                src="/images/profile.jpeg"
-                width="32px"
-                height="32px"
-              />
-              <div className="like">
-                {/* <div className="profileList">
-                            <ul>
-                                <li><p><i className="fas fa-user-alt"></i></p>프로필</li>
-                                <li><p><i className="far fa-bookmark"></i></p>저장됨</li>
-                                <li><p><i className="fas fa-cog"></i></p>설정</li>
-                                <li><p><i className="fas fa-undo"></i></p>계정 전환</li>
-                                <li>로그아웃</li>
-                            </ul>
-                        </div> */}
-        {/* </div>
-            </div>
-          </div>
-        </nav> */}
         <Nav />
         <main>
           <div className="main">
             <div className="feeds">
               <div>
-                <article className="firstFeed">
-                  <header className="feedHead">
-                    <img
-                      id="feed_pic"
-                      alt="feedProfileIcon"
-                      src="/images/yonghyun/profile.jpeg"
-                      width="32px"
-                      height="32px"
-                    />
-                    <div className="user1">4.21ee</div>
-                  </header>
-                  <div className="threeDot">
-                    <button>
-                      <i className="fas fa-ellipsis-h"></i>
-                    </button>
-                  </div>
-                  <div className="pics">
-                    <img
-                      id="firstPic"
-                      alt="mainPic"
-                      src="/images/yonghyun/sky.jpeg"
-                    />
-                  </div>
-                  <div className="comment">
-                    <section className="heart2">
-                      <div className="icon_pack">
-                        <button className="likeBtn">
-                          <i id="emptyheart" className="far fa-heart"></i>
-                          <i id="redheart" className="fas fa-heart"></i>
-                        </button>
-                        <button>
-                          <i className="far fa-comment"></i>
-                        </button>
-                        <button>
-                          <i className="far fa-paper-plane"></i>
-                        </button>
-                        <button id="bookmark">
-                          <i className="far fa-bookmark"></i>
-                        </button>
-                      </div>
-                    </section>
-                    <section className="manyLike">
-                      <div>좋아요 485,222개</div>
-                    </section>
-                    <div className="comments_head">
-                      <p className="commentFeeds">
-                        <a href="" className="re_id">
-                          4.21ee
-                        </a>
-                        <span className="re_p"> 큰일났다 벌써졸림 </span>
-                      </p>
-                    </div>
-                    <div className="comments">
-                      <div className="commentFeed" id="other_re">
-                        <ul className="feedComment">
-                          <ul id="addR"></ul>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="howLong">
-                      <div>25분전</div>
-                    </div>
-                    <section className="write">
-                      <button>
-                        <i className="far fa-smile"></i>
-                      </button>
-                      <input
-                        id="writeComment"
-                        type="text"
-                        placeholder="댓글 달기..."
-                      />
-                      <button id="writeBtn">게시</button>
-                    </section>
-                  </div>
-                </article>
+                <Feed feedList={feedList} />
               </div>
             </div>
+            <DG replList={replList} />
             <div className="main-right">
               <div className="my_id">
                 <div className="story">
@@ -263,4 +158,4 @@ class Main extends React.Component {
   }
 }
 
-export default withRouter(Main);
+export default Main;

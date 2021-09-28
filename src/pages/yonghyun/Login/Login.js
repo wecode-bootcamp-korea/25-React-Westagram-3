@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Login.scss';
 import { withRouter } from 'react-router-dom';
 
@@ -14,12 +14,10 @@ class Login extends React.Component {
 
   handleIdInput = e => {
     this.setState({ id: e.target.value });
-    this.isLogin();
   };
 
   handlePwInput = e => {
     this.setState({ pw: e.target.value });
-    this.isLogin();
   };
 
   isLogin = () => {
@@ -34,9 +32,11 @@ class Login extends React.Component {
     }
   };
 
-  render() {
-    console.log(this.state);
+  goToMain = () => {
+    if (this.state.canLogin === true) this.props.history.push('/Main-YH');
+  };
 
+  render() {
     const { canLogin } = this.state;
 
     return (
@@ -54,6 +54,7 @@ class Login extends React.Component {
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
                     onChange={this.handleIdInput}
+                    onKeyUp={this.isLogin}
                   />
                 </div>
                 <div className="inputBox">
@@ -62,6 +63,7 @@ class Login extends React.Component {
                     type="password"
                     placeholder="비밀번호"
                     onChange={this.handlePwInput}
+                    onKeyUp={this.isLogin}
                   />
                 </div>
                 <div className="loginBox">
@@ -71,13 +73,12 @@ class Login extends React.Component {
                   >
                     로그인
                   </button>
-                  {/* <Link to="/main" className="loginBtn" disabled>로그인</Link> */}
                 </div>
               </div>
             </form>
           </div>
           <div className="findPw">
-            <a href="#">비밀번호를 잊으셨나요?</a>
+            <a href="#a">비밀번호를 잊으셨나요?</a>
           </div>
         </div>
       </>
