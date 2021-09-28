@@ -3,7 +3,7 @@ import React from 'react';
 class Suggest extends React.Component {
   render() {
     const userData = this.props.suggestList;
-    const userList = userData.map((user, idx) => (
+    const userList = userData.map(user => (
       <>
         <div className="account">
           <img alt="user" src={user.img} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -51,7 +52,7 @@ class Login extends React.Component {
               Log In
             </button>
           </form>
-          <a href=".">비밀번호를 잊으셨나요?</a>
+          <Link to="#">비밀번호를 잊으셨나요?</Link>
         </div>
       </div>
     );

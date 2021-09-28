@@ -41,7 +41,6 @@ class Comment extends react.Component {
         context: '',
       });
       count++;
-      console.log(count);
     }
   };
 
@@ -52,7 +51,7 @@ class Comment extends react.Component {
   };
 
   render() {
-    const feedId = this.props.feedId * 1;
+    const feedId = parseInt(this.props.feedId);
     let comments = this.state.comments;
     const commentList = !comments[feedId]
       ? null
