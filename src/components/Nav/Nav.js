@@ -9,7 +9,7 @@ class Nav extends React.Component {
           <nav className="navigator">
             <div className="nav-interface">
               <div className="nav-left">
-                <a className="logo-text" href="main.html">
+                <a className="logo-text" href="main-HH">
                   Westagram
                 </a>
               </div>

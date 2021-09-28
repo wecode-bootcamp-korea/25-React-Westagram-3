@@ -1,0 +1,37 @@
+.inputs {
+  input {
+    margin: 7px;
+    width: 400px;
+    font-size: 19px;
+    background-color: #f8f7f7a8;
+    height: 40px;
+    border: 1px solid rgba(230, 226, 226, 0.61);
+    border-radius: 3px;
+    padding-left: 10px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Active {
+    width: 400px;
+    height: 50px;
+    margin: 15px 0 180px;
+    border: 0px;
+    border-radius: 3px;
+    background-color: #3364eb;
+    color: white;
+    font-size: 19px;
+  }
+
+  .Disabled {
+    width: 400px;
+    height: 50px;
+    margin: 15px 0 180px;
+    border: 0px;
+    border-radius: 3px;
+    background-color: #3364eb56;
+    color: white;
+    font-size: 19px;
+  }
+}
