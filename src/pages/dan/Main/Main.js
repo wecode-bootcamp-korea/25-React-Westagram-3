@@ -2,66 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
-import Comment from '../Main/Feed/Comment';
+import CommentList from '../Main/Feed/CommentList';
+import '../Commondan.scss';
 import './Main.scss';
 
 class Main extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      commentList: [],
-      comment: '',
-    };
-  }
-
-  // Comment state
-  textChange = event => {
-    this.setState(
-      {
-        comment: event.target.value,
-      },
-      () => {
-        this.commentValid();
-      }
-    );
-  };
-
-  // Comment validation
-  commentValid() {
-    const { comment } = this.state;
-    return comment.length > 0 ? true : false;
-  }
-
-  // Comment 추가 후 textarea 리셋
-  addComment = () => {
-    if (this.commentValid() === true) {
-      this.setState({
-        commentList: this.state.commentList.concat({
-          comment: this.state.comment,
-        }),
-        comment: '',
-      });
-    }
-  };
-
-  // 게시 button Event
-  handleButton = event => {
-    event.preventDefault();
-    this.setState(() => {
-      this.addComment();
-    });
-  };
-
-  // enter key Event
-  handleKeyPress = event => {
-    if (event.key === 'Enter' && !event.shiftKey) {
-      this.setState(() => {
-        this.addComment();
-      });
-      event.target.value = '';
-    }
-  };
-
   render() {
     return (
       <>
@@ -326,40 +271,7 @@ class Main extends React.Component {
                 </Link>
               </section>
 
-              <div className="comments">
-                <div
-                  id="commentList"
-                  className="list_comment"
-                  onChange={this.addComment}
-                >
-                  {this.state.commentList.map((content, i) => {
-                    return (
-                      <Comment
-                        commentList={this.commentList}
-                        comment={this.comment}
-                        content={content}
-                        key={i}
-                      />
-                    );
-                  })}
-                </div>
-                <form id="post" className="post_comment">
-                  <textarea
-                    id="newComment"
-                    type="input"
-                    placeholder="댓글 달기..."
-                    onKeyPress={this.handleKeyPress}
-                    onChange={this.textChange}
-                  ></textarea>
-                  <button
-                    id="btnPost"
-                    type="submit"
-                    onClick={this.handleButton}
-                  >
-                    게시
-                  </button>
-                </form>
-              </div>
+              <CommentList />
             </article>
           </div>
         </main>

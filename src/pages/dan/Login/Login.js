@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import '../Commondan.scss';
 import './Login.scss';
 
 class Login extends React.Component {

@@ -1,0 +1,36 @@
+/*comments*/
+.area_comment {
+  .comments {
+    padding: 10px 20px;
+  }
+
+  .list_comment {
+    margin-bottom: 10px;
+  }
+
+  .txt_comment {
+    display: flex;
+    margin-bottom: 5px;
+
+    & > span {
+      flex: 9.8;
+
+      .txt_id {
+        margin-right: 10px;
+      }
+
+      span {
+        width: 100%;
+      }
+    }
+
+    button {
+      flex: 0.2;
+      color: #ddd;
+
+      &:hover {
+        color: #777;
+      }
+    }
+  }
+}

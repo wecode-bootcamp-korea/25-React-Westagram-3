@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Comment.scss';
 
 class Comment extends React.Component {
   render() {
+    const { comment } = this.props;
     return (
       <>
-        <p className="txt_comment" key={this.props.i + 1}>
+        <p className="txt_comment" key={comment.id}>
           <span>
             <Link to="#n" className="txt_id">
-              follow ID
+              {comment.userName}
             </Link>
-            <span>{this.props.content.comment}</span>
+            <span>{comment.content}</span>
           </span>
           <button id="delete" type="button">
             X
