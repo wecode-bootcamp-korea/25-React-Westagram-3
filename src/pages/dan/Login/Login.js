@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import '../Commondan.scss';
+import '../Common.scss';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -67,7 +67,7 @@ class Login extends React.Component {
   render() {
     const isValid = this.handleButton();
     return (
-      <div className="login_container">
+      <div className="login_container common">
         <main className="login">
           <h1>Danstagram</h1>
 

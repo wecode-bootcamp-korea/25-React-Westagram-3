@@ -11,7 +11,6 @@ class CommentList extends React.Component {
     };
   }
 
-  // Comment state
   textChange = event => {
     this.setState(
       {
@@ -23,47 +22,43 @@ class CommentList extends React.Component {
     );
   };
 
-  // Comment validation
   commentValid() {
     const { comment } = this.state;
     return comment.length > 0 ? true : false;
   }
 
-  // Comment 추가 후 textarea 리셋
   addComment = () => {
+    const { commentList, comment } = this.state;
     if (this.commentValid() === true) {
       this.setState({
-        commentList: this.state.commentList.concat({
-          comment: this.state.comment,
+        commentList: commentList.concat({
+          content: comment,
+          userName: 'Dand',
         }),
         comment: '',
       });
     }
   };
 
-  // 게시 button Event
   handleButton = event => {
     event.preventDefault();
     this.setState(() => {
       this.addComment();
     });
-    console.log(this.state.comment);
   };
 
-  // enter key Event
   handleKeyPress = event => {
     if (event.key === 'Enter' && !event.shiftKey) {
       this.setState(() => {
         this.addComment();
       });
-      event.target.value = '';
     }
   };
 
   componentDidMount() {
     fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -74,7 +69,6 @@ class CommentList extends React.Component {
 
   render() {
     const { commentList, comment } = this.state;
-
     return (
       <div className="area_comment">
         <div className="comments">
@@ -87,8 +81,7 @@ class CommentList extends React.Component {
               return (
                 <Comment
                   key={comment.id}
-                  name={comment.userName}
-                  //commentList={commentList}
+                  userName={comment.userName}
                   comment={comment}
                   content={comment.content}
                 />
@@ -100,6 +93,7 @@ class CommentList extends React.Component {
               id="newComment"
               type="input"
               placeholder="댓글 달기..."
+              value={comment}
               onKeyPress={this.handleKeyPress}
               onChange={this.textChange}
             ></textarea>

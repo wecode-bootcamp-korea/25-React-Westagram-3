@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.common {
+  .wrap {
+    width: 935px;
+    margin: 0 auto;
+  }
+
+  .round_img {
+    border-radius: 50%;
+  }
+
+  .txt_id {
+    font-weight: bold;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  p,
+  span,
+  div,
+  a {
+    font-family: sans-serif;
+  }
+
+  button {
+    border: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  button {
+    background: none;
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    outline: none;
+  }
+}

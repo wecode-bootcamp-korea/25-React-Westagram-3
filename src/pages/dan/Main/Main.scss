@@ -78,7 +78,7 @@
 /**************************
 MAIN LAYOUT
 **************************/
-main.wrap {
+.main_container {
   display: flex;
   flex-direction: row-reverse;
   padding: 80px 0 100px;
@@ -90,7 +90,6 @@ ASIDE
 aside {
   flex: 3.5;
 
-  /* my profile */
   .my_profile {
     display: flex;
     align-items: center;
@@ -114,31 +113,29 @@ aside {
     }
   }
 
-  /* WIDGET - common */
   .widget {
     background: #fff;
     border: 1px solid #e8e8e8;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 15px;
+
+    .widget_ttl {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.8em;
+
+      span {
+        color: #999;
+      }
+    }
+
+    .txt_id:hover {
+      text-decoration: underline;
+    }
   }
 
-  .widget_ttl {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 0.8em;
-  }
-
-  .widget_ttl span {
-    color: #999;
-  }
-
-  .widget .txt_id:hover {
-    text-decoration: underline;
-  }
-
-  /* WIDGET - story */
   .stories {
     padding-bottom: 0;
   }
