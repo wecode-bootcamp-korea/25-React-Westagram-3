@@ -1,5 +1,5 @@
-[
-  [
+{
+  "0": [
     {
       "id": "0",
       "userName": "we_go_mars",
@@ -11,7 +11,7 @@
       "text": "Beautiful!"
     }
   ],
-  [
+  "1": [
     {
       "id": "0",
       "userName": "zedi",
@@ -23,4 +23,4 @@
       "text": "It's good"
     }
   ]
-]
+}

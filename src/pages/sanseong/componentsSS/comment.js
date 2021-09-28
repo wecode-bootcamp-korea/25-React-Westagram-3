@@ -50,20 +50,23 @@ class Comment extends react.Component {
       this.addComment();
     }
   };
+
   render() {
     const feedId = this.props.feedId * 1;
-    const comments = this.state.comments[feedId];
-    // console.log(feedId);
-    // console.log(comments[feedId]);
-    const commentList = comments.map(context => {
-      const { id, userName, text } = context;
-      return (
-        <li className="comment" key={id}>
-          <div className="name">{userName}</div>
-          <div className="content">{text}</div>
-        </li>
-      );
-    });
+    let comments = this.state.comments;
+    const commentList = !comments[feedId]
+      ? null
+      : comments[feedId].map(context => {
+          const { id, userName, text } = context;
+          return (
+            <li className="comment" key={id}>
+              <div className="name">{userName}</div>
+              <div className="content">{text}</div>
+            </li>
+          );
+        });
+
+    console.log('target', comments[feedId]);
     return (
       <>
         <ul>{commentList}</ul>
