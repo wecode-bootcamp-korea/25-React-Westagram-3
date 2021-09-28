@@ -16,7 +16,7 @@ class Comment extends react.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          comments: data['0'],
+          comments: data,
         });
       });
   }
@@ -51,12 +51,16 @@ class Comment extends react.Component {
     }
   };
   render() {
-    const comments = this.state.comments;
+    const feedId = this.props.feedId * 1;
+    const comments = this.state.comments[feedId];
+    // console.log(feedId);
+    // console.log(comments[feedId]);
     const commentList = comments.map(context => {
+      const { id, userName, text } = context;
       return (
-        <li className="comment" key={context.id}>
-          <div className="name">{context.userName}</div>
-          <div className="content">{context.text}</div>
+        <li className="comment" key={id}>
+          <div className="name">{userName}</div>
+          <div className="content">{text}</div>
         </li>
       );
     });

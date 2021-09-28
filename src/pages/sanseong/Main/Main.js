@@ -29,14 +29,8 @@ class Main extends React.Component {
 
   render() {
     const feedList = this.state.feeds.map(data => {
-      return (
-        <Feed
-          id={data.id}
-          writer={data.writer}
-          img={data.img}
-          text={data.text}
-        />
-      );
+      const { id, writer, img, text } = data;
+      return <Feed id={id} writer={writer} img={img} text={text} />;
     });
     return (
       <>
