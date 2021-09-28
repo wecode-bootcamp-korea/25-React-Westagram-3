@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -12,7 +12,6 @@ class Login extends React.Component {
       Id: '',
       Pw: '',
       isValid: '',
-      disabled: '',
     };
   }
   handleInput = e => {
@@ -40,6 +39,7 @@ class Login extends React.Component {
     }
   };
   render() {
+    const { isValid } = this.state;
     return (
       <main className="login-box">
         <div className="login-container" onKeyPress={this.onCheckEnter}>
@@ -63,18 +63,18 @@ class Login extends React.Component {
           <button
             type="button"
             onClick={this.goToMain}
-            className={this.state.isValid ? 'button' : 'button-off'}
+            className={isValid ? 'button' : 'button-off'}
             id="login-button"
-            disabled={!this.state.isValid}
+            disabled={!isValid}
           >
             로그인
           </button>
           <div className="validity">
             아이디 또는 비밀번호가 잘못 입력 되어 있습니다.
           </div>
-          <a href="" className="forget">
+          <Link to="#" className="forget">
             비밀번호를 잊으셨나요?
-          </a>
+          </Link>
         </div>
       </main>
     );
