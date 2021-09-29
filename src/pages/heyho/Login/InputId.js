@@ -32,12 +32,12 @@ class InputId extends React.Component {
         <button
           type="button"
           className={
-            idInputValue.indexOf('@') !== -1 && { pwInputValue }.length >= 5
+            idInputValue.indexOf('@') !== -1 && pwInputValue.length > 5
               ? 'Active'
               : 'Disabled'
           }
           disabled={
-            idInputValue.indexOf('@') !== -1 && { pwInputValue }.length > 5
+            idInputValue.indexOf('@') !== -1 && pwInputValue.length > 5
               ? false
               : true
           }

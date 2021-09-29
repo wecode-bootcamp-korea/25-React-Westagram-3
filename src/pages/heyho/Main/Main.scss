@@ -1,8 +1,13 @@
 main {
-  background-color: rgba(241, 235, 235, 0.562);
   display: flex;
   justify-content: center;
   padding: 100px;
+  background-color: rgba(241, 235, 235, 0.562);
+}
+
+.feedFlex {
+  display: flex;
+  flex-direction: column;
 }
 
 #feeds {
@@ -11,6 +16,7 @@ main {
   margin-right: 20px;
   background-color: white;
   position: relative;
+  margin-top: 20px;
 }
 
 .feedTop {

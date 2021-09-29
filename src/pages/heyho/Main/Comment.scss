@@ -16,6 +16,18 @@ button {
   color: rgba(43, 142, 235, 0.884);
 }
 
+form {
+  margin-top: 5px;
+  border-top: 1px solid #c0c1c22a;
+}
+
+input {
+  border: 0;
+  padding-left: 10px;
+  height: 30px;
+  width: 90%;
+}
+
 input::placeholder {
   color: rgba(20, 20, 20, 0.281);
 }
@@ -34,19 +46,14 @@ li {
   color: rgba(43, 142, 235, 0.37);
 }
 
-form {
-  margin-top: 5px;
-  border-top: 1px solid #c0c1c22a;
+.haniName {
+  font-weight: bold;
 }
 
-input {
-  border: 0;
-  padding-left: 10px;
-  height: 30px;
-  width: 90%;
+.userSay {
+  padding-left: 5px;
 }
 
-.haniName,
 .strong {
   font-weight: bold;
 }

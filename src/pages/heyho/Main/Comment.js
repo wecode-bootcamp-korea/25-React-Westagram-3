@@ -6,7 +6,7 @@ class Comment extends React.Component {
       <>
         <li>
           <span className="haniName">{this.props.userName}</span>
-          <span>{this.props.content}</span>
+          <span className="userSay">{this.props.content}</span>
         </li>
       </>
     );

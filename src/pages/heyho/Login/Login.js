@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 import InputId from './InputId';
 
@@ -25,7 +26,20 @@ class Login extends React.Component {
   };
 
   goToMain = () => {
-    this.props.history.push('/Main-HH');
+    console.log(this.state.idInputValue);
+    console.log(this.state.pwInputValue);
+    fetch('http://10.58.2.15:8000/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idInputValue,
+        password: this.state.pwInputValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        this.props.history.push('/Main-HH');
+      });
   };
 
   render() {
@@ -43,9 +57,9 @@ class Login extends React.Component {
           />
         </div>
 
-        <a className="forgotPwd" href="/login-HH">
+        <Link className="forgotPwd" to="#">
           비밀번호를 잊으셨나요??
-        </a>
+        </Link>
       </header>
     );
   }
