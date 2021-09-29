@@ -20,7 +20,6 @@ class Feeds extends React.Component {
     const { comment } = this.state;
     if (e.key === 'Enter' && comment.length > 1) {
       this.handleComment();
-      e.target.value = '';
     }
   };
   // 버튼 클릭시 댓글 state변경 후 다시 빈글자로 변환
@@ -142,6 +141,7 @@ class Feeds extends React.Component {
               className="comment-text"
               type="text"
               placeholder="댓글 달기..."
+              value={comment}
               onChange={this.textChange}
               onKeyPress={this.handleKeyPress}
             />
