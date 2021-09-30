@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "feedList": "photo"
+    "abc": "photo"
   },
   {
     "id": 2,
-    "feedList": "photo"
+    "abc": "photo"
   },
   {
     "id": 3,
-    "feedList": "photo"
+    "abc": "photo"
   },
   {
     "id": 4,
-    "feedList": "photo"
+    "abc": "photo"
   },
   {
     "id": 5,
-    "feedList": "photo"
+    "abc": "photo"
   }
 ]

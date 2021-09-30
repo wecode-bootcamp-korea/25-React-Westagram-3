@@ -7,34 +7,10 @@ import Feed from './Feed';
 class Main extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      newReply: '',
-      replies: [],
       feedList: [],
     };
   }
-
-  textChange = e => {
-    this.setState({
-      newReply: e.target.value,
-    });
-  };
-
-  handleSubmit = e => {
-    const { newReply, replies } = this.state;
-    e.preventDefault();
-    if (newReply) {
-      this.setState({
-        replies: replies.concat({
-          userName: 'yo.heyho',
-          content: newReply,
-        }),
-        newReply: '',
-      });
-    }
-  };
-
   componentDidMount() {
     fetch('http://localhost:3000/data/feedData.json', {
       method: 'GET',
@@ -45,33 +21,16 @@ class Main extends React.Component {
           feedList: data,
         });
       });
-
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          replies: data,
-        });
-      });
   }
 
   render() {
     return (
       <>
         <Nav />
-
         <main>
           <div className="feedFlex">
-            {this.state.feedList.map(feedData => {
-              return (
-                <Feed
-                  feedData={feedData}
-                  replies={this.state.replies}
-                  id={this.state.id}
-                />
-              );
+            {this.state.feedList.map(content => {
+              return <Feed abc={content.abc} />;
             })}
           </div>
           <div id="main-right">

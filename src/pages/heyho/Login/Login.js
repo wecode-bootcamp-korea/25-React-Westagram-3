@@ -26,20 +26,7 @@ class Login extends React.Component {
   };
 
   goToMain = () => {
-    console.log(this.state.idInputValue);
-    console.log(this.state.pwInputValue);
-    fetch('http://10.58.2.15:8000/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: this.state.idInputValue,
-        password: this.state.pwInputValue,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-        this.props.history.push('/Main-HH');
-      });
+    this.props.history.push('/Main-HH');
   };
 
   render() {
@@ -65,4 +52,4 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+export default Login;
