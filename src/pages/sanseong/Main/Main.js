@@ -29,8 +29,10 @@ class Main extends React.Component {
 
   render() {
     const feedList = this.state.feeds.map(data => {
-      const { id, writer, img, text } = data;
-      return <Feed id={id} writer={writer} img={img} text={text} />;
+      const { id, writer, img, text, comment } = data;
+      return (
+        <Feed id={id} writer={writer} img={img} text={text} comment={comment} />
+      );
     });
     return (
       <>
@@ -54,7 +56,7 @@ class Main extends React.Component {
                 <span className="seeAll">See All</span>
               </div>
               <div className="storyList">
-                <Story storyUsers={storyUsers} />
+                <Story />
               </div>
             </section>
             <section className="asideBox">
@@ -63,7 +65,7 @@ class Main extends React.Component {
                 <span className="seeAll">See All</span>
               </div>
               <div className="followList">
-                <Suggest suggestList={suggestList} />
+                <Suggest />
               </div>
             </section>
           </aside>
@@ -72,46 +74,5 @@ class Main extends React.Component {
     );
   }
 }
-
-class user {
-  constructor(nickname, introduce, img) {
-    this.nickname = nickname;
-    this.introduce = introduce;
-    this.img = img;
-  }
-}
-const acid = new user(
-  'acid',
-  'FrontEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U02808S0GCF-31acdd48834c-512'
-);
-const fairy_yoon = new user(
-  'fairy_yoon',
-  'FrontEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U0288815M5L-83cffa237ed7-512'
-);
-const mj_bro = new user(
-  'mj_bro',
-  'FrontEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U028F6M33TM-0b35e2ac4357-512'
-);
-const before_sun = new user(
-  'before_sun',
-  'FrontEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U028TKWDUGZ-127382dc96e8-512'
-);
-const zzoozzoo_boy = new user(
-  'zzoozzoo_boy',
-  'FrontEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U028F6LHV2P-2b70ab7b7419-512'
-);
-const sergeant_yang = new user(
-  'sergeant_yang',
-  'BackEndDev',
-  'https://ca.slack-edge.com/TH0U6FBTN-U028F0LER42-390940eb15a3-512'
-);
-
-const storyUsers = [fairy_yoon, mj_bro, before_sun, zzoozzoo_boy];
-const suggestList = [sergeant_yang];
 
 export default withRouter(Main);

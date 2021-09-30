@@ -10,15 +10,9 @@ class Comment extends react.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          comments: data,
-        });
-      });
+    this.setState({
+      comments: this.props.comment,
+    });
   }
 
   saveContext = e => {
@@ -51,21 +45,19 @@ class Comment extends react.Component {
   };
 
   render() {
-    const feedId = parseInt(this.props.feedId);
     let comments = this.state.comments;
-    const commentList = !comments[feedId]
-      ? null
-      : comments[feedId].map(context => {
-          const { id, userName, text } = context;
-          return (
-            <li className="comment" key={id}>
-              <div className="name">{userName}</div>
-              <div className="content">{text}</div>
-            </li>
-          );
-        });
+    const commentList =
+      comments &&
+      comments.map(context => {
+        const { id, userName, text } = context;
+        return (
+          <li className="comment" key={id}>
+            <div className="name">{userName}</div>
+            <div className="content">{text}</div>
+          </li>
+        );
+      });
 
-    console.log('target', comments[feedId]);
     return (
       <>
         <ul>{commentList}</ul>

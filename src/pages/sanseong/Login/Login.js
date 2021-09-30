@@ -25,7 +25,19 @@ class Login extends React.Component {
   }
 
   goToMain = () => {
-    this.props.history.push('/main-SS');
+    const { id, pw } = this.state;
+    fetch('http://10.58.5.12:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+        // phone_number: '00000',
+        // information: 'hi',
+        // name: 'acid',
+      }),
+    })
+      .then(response => response.json())
+      .then(result => result.token && this.props.history.push('/Main-SS'));
   };
 
   render() {
@@ -35,7 +47,7 @@ class Login extends React.Component {
       <div className="Login">
         <div className="container">
           <h1 className="logo">Westagram</h1>
-          <form className="logInArea" onChange={this.handleInput}>
+          <div className="logInArea" onChange={this.handleInput}>
             <input type="text" name="id" placeholder="ID" id="id" />
             <input
               type="password"
@@ -51,7 +63,7 @@ class Login extends React.Component {
             >
               Log In
             </button>
-          </form>
+          </div>
           <Link to="#">비밀번호를 잊으셨나요?</Link>
         </div>
       </div>

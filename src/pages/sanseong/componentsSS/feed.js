@@ -3,7 +3,7 @@ import Comment from './comment';
 
 class Feed extends React.Component {
   render() {
-    const { id, writer, img, text } = this.props;
+    const { id, writer, img, text, comment } = this.props;
     return (
       <article key={id}>
         <section className="writerArea">
@@ -34,7 +34,7 @@ class Feed extends React.Component {
           <span className="content">{text}</span>
           <button className="moreSee">More See</button>
         </div>
-        <Comment feedId={id} />
+        <Comment feedId={id} comment={comment} />
       </article>
     );
   }
