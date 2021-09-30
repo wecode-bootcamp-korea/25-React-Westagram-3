@@ -12,7 +12,24 @@
     "heartName": "yooooona_",
     "heartNum": 97,
     "feedText": "오랜만에 전시회 📷 ",
-    "time": 1
+    "time": 1,
+    "comments": [
+      {
+        "id": 1,
+        "userName": "yooooona_",
+        "content": " 여기 어디야?"
+      },
+      {
+        "id": 2,
+        "userName": "acid",
+        "content": " 비욘더로드 맞죠!"
+      },
+      {
+        "id": 3,
+        "userName": "Sooyeon_06",
+        "content": " 분위기 장난 아닌데요?"
+      }
+    ]
   },
   {
     "id": 2,
@@ -27,7 +44,24 @@
     "heartName": "seock_hyun97",
     "heartNum": 40,
     "feedText": "너무 귀여운 우리집 실세 이뻐서 올 ",
-    "time": 2
+    "time": 2,
+    "comments": [
+      {
+        "id": 1,
+        "userName": "wecode_bootcamp",
+        "content": " 고양We에도 많이 올려주세요!"
+      },
+      {
+        "id": 2,
+        "userName": "Seyeon_14",
+        "content": " 너무 예뻐요 다른 사진도 있나요?"
+      },
+      {
+        "id": 3,
+        "userName": "gh456",
+        "content": " 뚱냥이 너무너무 귀엽네요"
+      }
+    ]
   },
   {
     "id": 3,
@@ -42,7 +76,19 @@
     "heartName": "ty_050",
     "heartNum": 77,
     "feedText": "열정적으로 사진 찍는 우리 코햇 ",
-    "time": 3
+    "time": 3,
+    "comments": [
+      {
+        "id": 1,
+        "userName": "ImKing1",
+        "content": " 이날 제가 주인공이였는데!"
+      },
+      {
+        "id": 2,
+        "userName": "minminji",
+        "content": " 이거 저 찍고있던 거죠?"
+      }
+    ]
   },
   {
     "id": 4,
@@ -57,6 +103,23 @@
     "heartName": "minminji",
     "heartNum": 99,
     "feedText": "나는 슈퍼맨이다! ",
-    "time": 4
+    "time": 4,
+    "comments": [
+      {
+        "id": 1,
+        "userName": "acid",
+        "content": " 자세가 한두번 해본 자세가 아닌데요?"
+      },
+      {
+        "id": 2,
+        "userName": "heyho",
+        "content": " 저 팬인데 싸인좀 부탁드려요!"
+      },
+      {
+        "id": 3,
+        "userName": "wecode_bootcamp",
+        "content": " 저희가 찍어드리는거 보다 잘 나왔는데요?"
+      }
+    ]
   }
 ]

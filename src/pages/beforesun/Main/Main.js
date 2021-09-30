@@ -31,7 +31,6 @@ class Main extends React.Component {
             {this.state.feedList.map(content => {
               return (
                 <Feeds
-                  // content={content}
                   subAlt={content.subAlt}
                   subSrc={content.subSrc}
                   feedUserId={content.feedUserId}
@@ -45,6 +44,7 @@ class Main extends React.Component {
                   feedText={content.feedText}
                   time={content.time}
                   key={content.id}
+                  comments={content.comments}
                 />
               );
             })}

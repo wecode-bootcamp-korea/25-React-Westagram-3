@@ -79,7 +79,7 @@ class Side extends React.Component {
             </Link>
             <div className="side-my">
               <Link to="#">acid</Link>
-              <span>wecode_bootcamp님 외 2명 ...</span>
+              <span>wecode_bootcamp님 외 2명이 팔로우를 하고 있습니다.</span>
             </div>
             <button type="button">팔로우</button>
           </div>
@@ -92,7 +92,7 @@ class Side extends React.Component {
             </Link>
             <div className="side-my">
               <Link to="#">minminji</Link>
-              <span>xodid157님 외 14명이 팔로우 ...</span>
+              <span>xodid157님 외 14명이 팔로우를 하고 있습니다.</span>
             </div>
             <button type="button">팔로우</button>
           </div>
@@ -105,31 +105,31 @@ class Side extends React.Component {
             </Link>
             <div className="side-my">
               <Link to="#">Sooyeon_06</Link>
-              <span>yooooona_님 외 3명이 팔로우...</span>
+              <span>yooooona_님 외 3명이 팔로우를 하고 있습니다.</span>
             </div>
             <button type="button">팔로우</button>
           </div>
         </div>
         <div className="footer">
-          <div className="footer-text1">
+          <div className="footer-text">
             <span>Instagram </span>
             <Link to="#">정보 ・ </Link>
             <Link to="#">지원 ・ </Link>
             <Link to="#">홍보 센터 ・ </Link>
             <Link to="#">API ・ </Link>
           </div>
-          <div className="footer-text2">
+          <div className="footer-text">
             <Link to="#">채용정보 ・ </Link>
             <Link to="#">개인정보처리방침 ・ </Link>
             <Link to="#">약관 ・ </Link>
           </div>
-          <div className="footer-text3">
+          <div className="footer-text">
             <Link to="#">디렉터리 ・ </Link>
             <Link to="#">프로필 ・ </Link>
             <Link to="#">해시태그 ・ </Link>
             <Link to="#">언어 ・ </Link>
           </div>
-          <div className="footer-text4">
+          <div className="footer-text-last">
             <span>© 2019 INSTAGRAM</span>
           </div>
         </div>

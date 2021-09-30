@@ -59,8 +59,9 @@ class Feeds extends React.Component {
       heartNum,
       feedText,
       time,
+      comments,
     } = this.props;
-    const { comment, commentList } = this.state;
+    const { comment } = this.state;
     return (
       <section className="feeds" key={id}>
         <article className="feeds-content">
@@ -121,15 +122,16 @@ class Feeds extends React.Component {
               </Link>
             </div>
             <ul>
-              {commentList.map(comment => {
-                return (
-                  <Comment
-                    userName={comment.userName}
-                    content={comment.content}
-                    key={comment.id}
-                  />
-                );
-              })}
+              {comments &&
+                comments.map(comment => {
+                  return (
+                    <Comment
+                      userName={comment.userName}
+                      content={comment.content}
+                      key={comment.id}
+                    />
+                  );
+                })}
             </ul>
             <div className="empty-comment"></div>
             <div className="comment-time">

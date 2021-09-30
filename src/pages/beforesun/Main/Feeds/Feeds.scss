@@ -1,9 +1,7 @@
-/* 피드 */
 .feeds {
   width: 614px;
   margin-top: 65px;
   margin-right: 320px;
-
   img {
     width: 100%;
   }
@@ -18,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0px 20px;
-    > a > img {
+    img {
       width: 16px;
       height: 16px;
     }
@@ -27,7 +25,7 @@
     display: flex;
     align-items: center;
     height: 60px;
-    > a > img {
+    img {
       width: 32px;
       height: 32px;
       border-radius: 100%;
@@ -37,7 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    > a {
+    a {
       padding: 0px;
       margin-left: 10px;
       margin-bottom: 10px;
@@ -50,7 +48,7 @@
     margin-bottom: 10px;
     color: black;
   }
-  .my-info > {
+  .my-info {
     a {
       height: 5px;
       font-size: 14px;
@@ -85,7 +83,7 @@
     margin: 0px 20px;
     margin-bottom: 3px;
     font-size: 14px;
-    > a {
+    a {
       margin: 0;
       color: black;
       font-weight: bold;
@@ -96,7 +94,6 @@
     margin-right: 7px;
     border-radius: 100px;
   }
-  /* 댓글 창 (댓글 이벤트 구현 구관) */
   .comment {
     display: flex;
     flex-direction: column;
@@ -116,9 +113,11 @@
     justify-content: space-between;
     margin-top: 5px;
   }
-  .yous > a {
-    color: black;
-    font-weight: bold;
+  .yous {
+    a {
+      color: black;
+      font-weight: bold;
+    }
   }
   .comment-second img {
     width: 12px;
@@ -130,7 +129,7 @@
   }
   .comment-time {
     margin-top: 10px;
-    > a {
+    a {
       color: #8e8e8e;
       font-size: 10px;
     }
