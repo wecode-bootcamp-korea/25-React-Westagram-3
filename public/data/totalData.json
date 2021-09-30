@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "content": "/images/yonghyun/sky.jpeg",
+    "likeNumber": "좋아요 485,222개",
+    "isLiked": true,
+    "when": "15분전",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "오늘 점심 뭐먹지"
+      },
+      {
+        "id": 2,
+        "userName": "dydgus0421",
+        "content": "인증인가 인가인가"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userName": "dydgus0421",
+    "content": "/images/yonghyun/feed2.jpeg",
+    "likeNumber": "좋아요 5,222개",
+    "isLiked": false,
+    "when": "2시간전",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "Hy_un",
+        "content": "집에가고싶다.."
+      },
+      {
+        "id": 2,
+        "userName": "kyh0421",
+        "content": "지금은 9시 8분"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userName": "yonghyun",
+    "content": "/images/yonghyun/feed3.jpeg",
+    "likeNumber": "좋아요 22개",
+    "isLiked": true,
+    "when": "3일전",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wework",
+        "content": "내일 저녁 뭐먹지"
+      },
+      {
+        "id": 2,
+        "userName": "dydgusrla",
+        "content": "Mock Data 들어가라"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userName": "4.21ee",
+    "content": "/images/yonghyun/feed4.jpeg",
+    "likeNumber": "좋아요 1개",
+    "isLiked": true,
+    "when": "1달전",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "apple",
+        "content": "맥북 새로 사고싶다"
+      },
+      {
+        "id": 2,
+        "userName": "dydgus0421",
+        "content": "댓글아 나눠져라"
+      }
+    ]
+  }
+]

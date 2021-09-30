@@ -59,15 +59,9 @@ class Feed extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          replList: data,
-        });
-      });
+    this.setState({
+      replList: this.props.comment,
+    });
   }
 
   render() {

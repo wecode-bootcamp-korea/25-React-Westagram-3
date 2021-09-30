@@ -11,7 +11,7 @@ class Main extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3000/data/FeedData.json', {
+    fetch('http://localhost:3000/data/totalData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -24,7 +24,7 @@ class Main extends React.Component {
 
   render() {
     const feedL = this.state.feedList.map(a => {
-      const { id, userName, content, likeNumber, isLiked, when } = a;
+      const { id, userName, content, likeNumber, isLiked, when, comment } = a;
       return (
         <Feed
           id={id}
@@ -33,6 +33,7 @@ class Main extends React.Component {
           likeNumber={likeNumber}
           isLiked={isLiked}
           when={when}
+          comment={comment}
         />
       );
     });
