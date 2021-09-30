@@ -65,7 +65,13 @@ class Main extends React.Component {
         <main>
           <div className="feedFlex">
             {this.state.feedList.map(feedData => {
-              return <Feed feedData={feedData} replies={this.state.replies} />;
+              return (
+                <Feed
+                  feedData={feedData}
+                  replies={this.state.replies}
+                  id={this.state.id}
+                />
+              );
             })}
           </div>
           <div id="main-right">

@@ -4,7 +4,7 @@ import './Comment.scss';
 
 class Feed extends React.Component {
   render() {
-    const { replies, handleSubmit, newReply, textChange, feedData } =
+    const { replies, handleSubmit, newReply, textChange, feedData, id } =
       this.props;
     return (
       <div id="feeds">
@@ -47,8 +47,13 @@ class Feed extends React.Component {
 
           <ul>
             {replies.map(el => {
-              console.log(el);
-              return <Comment userName={el.userName} content={el.content} />;
+              return (
+                <Comment
+                  userName={el.userName}
+                  content={el.content}
+                  id={el.id}
+                />
+              );
             })}
           </ul>
           <form onSubmit={handleSubmit}>
