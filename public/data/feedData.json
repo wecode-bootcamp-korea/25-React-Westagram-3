@@ -1,0 +1,65 @@
+[
+  {
+    "id": 0,
+    "userName": "Dan_d",
+    "userImg": "/images/dan/cute_01.png",
+    "feedImg": "/images/dan/cute_01.png",
+    "feedImgAlt": "햄스터 사진",
+    "feedText": "건방진 고양이. 나의 찍찍 펀치를 받아라. 건방진 고양이. 나의 찍찍 펀치를 받아라. 건방진 고양이. 나의 찍찍 펀치를 받아라.",
+    "getLiked": "123,578",
+    "comment": [
+      {
+        "id": 0,
+        "userName": "xxx",
+        "commentText": "Hello✋"
+      },
+      {
+        "id": 2,
+        "userName": "yyy",
+        "commentText": "원 투 쨉쨉"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "userName": "i_am_cat",
+    "userImg": "/images/dan/cat_02.png",
+    "feedImg": "/images/dan/cat_02.png",
+    "feedImgAlt": "점박이 고양이 사진",
+    "feedText": "나는 고양이",
+    "getLiked": "1025k",
+    "comment": [
+      {
+        "id": 0,
+        "userName": "la_belle",
+        "commentText": "tres belle~"
+      },
+      {
+        "id": 2,
+        "userName": "hi_man",
+        "commentText": "Bonjour!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userName": "dxxxxg",
+    "userImg": "/images/dan/dog_02.png",
+    "feedImg": "/images/dan/dog_02.png",
+    "feedImgAlt": "노란 옷을 입은 프렌치 불독 사진",
+    "feedText": "나의 첫 증명사진",
+    "getLiked": "123,578",
+    "comment": [
+      {
+        "id": 0,
+        "userName": "mimi",
+        "commentText": "hahahaha!"
+      },
+      {
+        "id": 2,
+        "userName": "dodo",
+        "commentText": "so cute!"
+      }
+    ]
+  }
+]

@@ -12,7 +12,6 @@ class Login extends React.Component {
     };
   }
 
-  //ID state
   handleIdInput = event => {
     this.setState(
       {
@@ -24,7 +23,11 @@ class Login extends React.Component {
     );
   };
 
-  // PW state
+  checkIdValid() {
+    const { idValue } = this.state;
+    return idValue.includes('@') && idValue.length > 0 ? true : false;
+  }
+
   handlePwInput = event => {
     this.setState(
       {
@@ -36,19 +39,11 @@ class Login extends React.Component {
     );
   };
 
-  // ID validation
-  checkIdValid() {
-    const { idValue } = this.state;
-    return idValue.includes('@') && idValue.length > 0 ? true : false;
-  }
-
-  // PW validation
   checkPwValid() {
     const { pwValue } = this.state;
     return pwValue.length >= 5 ? true : false;
   }
 
-  // Login Button on : off
   handleButton = () => {
     this.setState(() => {
       this.checkIdValid();
@@ -59,9 +54,22 @@ class Login extends React.Component {
       : false;
   };
 
-  // Main 페이지로 이동
   goToDanMain = () => {
-    this.props.history.push('/Main-D');
+    fetch('http://10.58.7.150:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.pwValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log('결과:', result);
+        if (result.token) {
+          localStorage.setItem('우리토큰', result.token);
+          this.props.history.push('/Main-D');
+        }
+      });
   };
 
   render() {
@@ -90,8 +98,8 @@ class Login extends React.Component {
             />
             <button
               id="btnLogin"
-              type="submit"
-              className={isValid ? 'active' : ' '}
+              type="button"
+              className={isValid ? 'active' : 'non_active'}
               disabled={!isValid}
               onClick={this.goToDanMain}
             >

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class Comment extends React.Component {
   render() {
     const { comment } = this.props;
-    console.log(comment.content);
     return (
       <>
         <p className="txt_comment" key={comment.id}>

@@ -7,7 +7,27 @@ import '../Common.scss';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      feeds: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feeds: data,
+        });
+      });
+  }
+
   render() {
+    const { feeds } = this.state;
     return (
       <div className="common">
         <Nav />
@@ -23,9 +43,9 @@ class Main extends React.Component {
               </Link>
               <span className="my_id">
                 <Link to="#n" className="txt_id">
-                  My ID
+                  Dan_d
                 </Link>
-                <p>My Nickname</p>
+                <p>단디하자:D</p>
               </span>
             </div>
 
@@ -203,7 +223,9 @@ class Main extends React.Component {
           </aside>
 
           <div className="feed_board">
-            <Feed />
+            {feeds.map(feed => {
+              return <Feed feed={feed} />;
+            })}
           </div>
         </main>
       </div>

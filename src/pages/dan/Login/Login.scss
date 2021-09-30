@@ -41,14 +41,17 @@
         height: 40px;
         margin: 23px 0;
         color: #fff;
-        background: #c4e1fb;
         border: none;
         border-radius: 5px;
         font-size: 1.2em;
         line-height: 1;
         text-align: center;
         transition: all 0.3s;
-        cursor: default;
+
+        &.non_active {
+          background: #c4e1fb;
+          cursor: default;
+        }
 
         &.active {
           background: #52adff;

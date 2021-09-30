@@ -11,6 +11,18 @@ class CommentList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentList: data,
+        });
+      });
+  }
+
   textChange = event => {
     this.setState(
       {
@@ -28,12 +40,28 @@ class CommentList extends React.Component {
   }
 
   addComment = () => {
+    let token = localStorage.getItem('우리토큰') || '';
+    fetch('http://10.58.7.150:8000/posts/comment', {
+      headers: {
+        Authorization: token,
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        comment_post: this.state.comment,
+        post_id: '1',
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log('결과:', result);
+      });
+
     const { commentList, comment } = this.state;
     if (this.commentValid() === true) {
       this.setState({
         commentList: commentList.concat({
           content: comment,
-          userName: 'Dand',
+          userName: 'Dan_d',
         }),
         comment: '',
       });
@@ -55,18 +83,6 @@ class CommentList extends React.Component {
     }
   };
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-      });
-  }
-
   render() {
     const { commentList, comment } = this.state;
     return (
@@ -83,7 +99,7 @@ class CommentList extends React.Component {
                   key={comment.id}
                   userName={comment.userName}
                   comment={comment}
-                  content={comment.content}
+                  content={comment.commentText}
                 />
               );
             })}

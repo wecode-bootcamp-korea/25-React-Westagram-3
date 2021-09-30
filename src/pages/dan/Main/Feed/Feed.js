@@ -1,29 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentList from '../Feed/Comment/CommentList';
+import './Feed.scss';
 
 class Feed extends React.Component {
   render() {
+    const { feed } = this.props;
     return (
       <article className="feed">
         <div className="new_poster">
           <Link to="#n" className="poster_img">
-            <img
-              alt="follower profile image8"
-              className="round_img"
-              src="./images/dan/fallowing.png"
-            />
+            <img alt="user profile" className="round_img" src={feed.feedImg} />
           </Link>
           <Link to="#n" className="poster_id txt_id">
-            Following ID
+            {feed.userName}
           </Link>
           <button>
             <i className="fas fa-ellipsis-h"></i>옵션 더보기
           </button>
         </div>
-
         <section className="feed_imgs">
-          <img alt="햄스터 사진" src="./images/dan/cute_01.png" />
+          <img alt={feed.feedImgAlt} src={feed.feedImg} />
           <div className="interactions">
             <div className="my_emotion">
               <button type="button">
@@ -44,7 +41,7 @@ class Feed extends React.Component {
           <p>
             <Link to="#n" className="like_user">
               <img
-                alt="like user imagev"
+                alt="like user images"
                 className="round_img"
                 src="./images/dan/cat_01.png"
               />
@@ -52,7 +49,7 @@ class Feed extends React.Component {
             </Link>
             님
             <Link to="#n" className="like_num txt_id">
-              외 10명
+              외 {feed.getLiked}명
             </Link>
             이 좋아합니다
           </p>
@@ -60,14 +57,9 @@ class Feed extends React.Component {
 
         <section className="feed_txt">
           <Link to="#n" className="txt_id">
-            User ID
+            {feed.userName}
           </Link>
-          <span>
-            건방진 고양이. 나의 찍찍 펀치를 받아라. <br /> 건방진 고양이. 나의
-            찍찍 펀치를 받아라. 건방진 고양이. 나의 찍찍 펀치를 받아라. 건방진
-            고양이. 나의 찍찍 펀치를 받아라. 건방진 고양이. 나의 찍찍 펀치를
-            받아라.
-          </span>
+          <span>{feed.feedText}</span>
           <Link to="#n" className="more">
             더보기
           </Link>
