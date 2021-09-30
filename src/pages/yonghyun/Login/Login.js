@@ -12,12 +12,11 @@ class Login extends React.Component {
     };
   }
 
-  handleIdInput = e => {
-    this.setState({ id: e.target.value });
-  };
-
-  handlePwInput = e => {
-    this.setState({ pw: e.target.value });
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
   };
 
   isLogin = () => {
@@ -51,18 +50,20 @@ class Login extends React.Component {
                 <div className="inputBox">
                   <input
                     className="iId"
+                    name="id"
                     type="text"
                     placeholder="전화번호, 사용자 이름 또는 이메일"
-                    onChange={this.handleIdInput}
+                    onChange={this.handleInput}
                     onKeyUp={this.isLogin}
                   />
                 </div>
                 <div className="inputBox">
                   <input
                     className="iPw"
+                    name="pw"
                     type="password"
                     placeholder="비밀번호"
-                    onChange={this.handlePwInput}
+                    onChange={this.handleInput}
                     onKeyUp={this.isLogin}
                   />
                 </div>
@@ -70,6 +71,7 @@ class Login extends React.Component {
                   <button
                     className={canLogin ? 'loginBtn' : 'loginXBtn'}
                     onClick={this.goToMain}
+                    disabled={!canLogin}
                   >
                     로그인
                   </button>

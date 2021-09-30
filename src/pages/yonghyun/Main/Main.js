@@ -1,43 +1,41 @@
 import React from 'react';
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
-import Feed from './Comments/Feeds';
-import DG from './Comments/DG';
+import Feed from './Comments/Feed';
 
 class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      repl: '',
       feedList: [],
-      replList: [],
     };
   }
   componentDidMount() {
     fetch('http://localhost:3000/data/FeedData.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      method: 'GET',
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           feedList: data,
         });
       });
-
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET', // GET method는 기본값이라서 생략이 가능합니다.
-    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          replList: data,
-        });
-      });
   }
 
   render() {
-    const { replList, feedList } = this.state;
-
+    const feedL = this.state.feedList.map(a => {
+      const { id, userName, content, likeNumber, isLiked, when } = a;
+      return (
+        <Feed
+          id={id}
+          userName={userName}
+          content={content}
+          likeNumber={likeNumber}
+          isLiked={isLiked}
+          when={when}
+        />
+      );
+    });
     return (
       <>
         <Nav />
@@ -45,10 +43,9 @@ class Main extends React.Component {
           <div className="main">
             <div className="feeds">
               <div>
-                <Feed feedList={feedList} />
+                <article className="firstFeed">{feedL}</article>
               </div>
             </div>
-            <DG replList={replList} />
             <div className="main-right">
               <div className="my_id">
                 <div className="story">
@@ -89,7 +86,7 @@ class Main extends React.Component {
                     <img
                       className="friends_pic"
                       alt="recommend2"
-                      src="/images/yonghyun/profile.jpeg"
+                      src="/images/yonghyun/feed3.jpeg"
                       width="32px"
                       height="32px"
                     />
@@ -103,7 +100,7 @@ class Main extends React.Component {
                     <img
                       className="friends_pic"
                       alt="recommend3"
-                      src="/images/yonghyun/profile.jpeg"
+                      src="/images/yonghyun/feed2.jpeg"
                       width="32px"
                       height="32px"
                     />
@@ -117,12 +114,12 @@ class Main extends React.Component {
                     <img
                       className="friends_pic"
                       alt="recommend4"
-                      src="/images/yonghyun/profile.jpeg"
+                      src="/images/yonghyun/wecode.jpg"
                       width="32px"
                       height="32px"
                     />
                     <div className="friends_name">
-                      <div className="friends_id">asfsdk</div>
+                      <div className="friends_id">Hy_un</div>
                       <div className="friendsdesc">회원님을 위한 추천</div>
                     </div>
                     <button className="follow">팔로우</button>
@@ -131,7 +128,7 @@ class Main extends React.Component {
                     <img
                       className="friends_pic"
                       alt="recommend5"
-                      src="/images/yonghyun/profile.jpeg"
+                      src="/images/yonghyun/house.jpg"
                       width="32px"
                       height="32px"
                     />
