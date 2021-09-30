@@ -1,7 +1,7 @@
 import React from 'react';
-import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import Feed from './Comments/Feed';
+import './Main.scss';
 
 class Main extends React.Component {
   constructor() {
@@ -52,8 +52,6 @@ class Main extends React.Component {
                   <img
                     className="id_pic"
                     src="/images/yonghyun/profile.jpeg"
-                    width="57px"
-                    height="57px"
                     alt=""
                   />
                 </div>
