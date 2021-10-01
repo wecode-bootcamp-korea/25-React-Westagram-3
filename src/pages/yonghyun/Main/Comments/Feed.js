@@ -37,15 +37,15 @@ class Feed extends React.Component {
   };
 
   addComment = () => {
-    const { content } = this.state;
+    const { content, replList, userName } = this.state;
     if (content.trim() === '' || content === '') {
       return;
     }
     this.setState({
-      replList: this.state.replList.concat({
+      replList: replList.concat({
         id: this.state.id++,
-        userName: this.state.userName,
-        content: this.state.content.trim(),
+        userName: userName,
+        content: content.trim(),
       }),
       content: '',
     });
@@ -116,7 +116,7 @@ class Feed extends React.Component {
             </div>
           </section>
           <section className="manyLike">
-            <div>{likeNumber}</div>
+            <div>좋아요 {likeNumber}개</div>
           </section>
         </div>
         <div className="comments_head">
