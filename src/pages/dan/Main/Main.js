@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Nav from '../../../components/Nav/Nav';
 import Feed from '../Main/Feed/Feed';
 import '../Common.scss';
@@ -15,7 +14,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedData.json', {
+    fetch('./data/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())

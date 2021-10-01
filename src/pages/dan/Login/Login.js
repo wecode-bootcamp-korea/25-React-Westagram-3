@@ -13,49 +13,33 @@ class Login extends React.Component {
   }
 
   handleIdInput = event => {
-    this.setState(
-      {
-        idValue: event.target.value,
-      },
-      () => {
-        this.checkIdValid();
-      }
-    );
+    this.setState({
+      idValue: event.target.value,
+    });
   };
 
   checkIdValid() {
     const { idValue } = this.state;
-    return idValue.includes('@') && idValue.length > 0 ? true : false;
+    return idValue.includes('@') && idValue.length > 0;
   }
 
   handlePwInput = event => {
-    this.setState(
-      {
-        pwValue: event.target.value,
-      },
-      () => {
-        this.checkPwValid();
-      }
-    );
+    this.setState({
+      pwValue: event.target.value,
+    });
   };
 
   checkPwValid() {
     const { pwValue } = this.state;
-    return pwValue.length >= 5 ? true : false;
+    return pwValue.length >= 5;
   }
 
   handleButton = () => {
-    this.setState(() => {
-      this.checkIdValid();
-      this.checkPwValid();
-    });
-    return this.checkIdValid() === true && this.checkPwValid() === true
-      ? true
-      : false;
+    return this.checkIdValid() && this.checkPwValid();
   };
 
   goToDanMain = () => {
-    fetch('http://10.58.7.150:8000/users/login', {
+    fetch('http://10.58.3.17:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.idValue,
@@ -79,9 +63,8 @@ class Login extends React.Component {
         <main className="login">
           <h1>Danstagram</h1>
 
-          <form id="loginForm" className="login_wrap">
+          <form className="login_wrap">
             <input
-              id="userId"
               type="text"
               name="id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -89,7 +72,6 @@ class Login extends React.Component {
               onChange={this.handleIdInput}
             />
             <input
-              id="userPw"
               name="pw"
               type="password"
               placeholder="비밀번호"
@@ -97,7 +79,6 @@ class Login extends React.Component {
               onChange={this.handlePwInput}
             />
             <button
-              id="btnLogin"
               type="button"
               className={isValid ? 'active' : 'non_active'}
               disabled={!isValid}

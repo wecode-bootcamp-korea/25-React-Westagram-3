@@ -12,7 +12,7 @@ class CommentList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
+    fetch('./data/commentData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -24,62 +24,54 @@ class CommentList extends React.Component {
   }
 
   textChange = event => {
-    this.setState(
-      {
-        comment: event.target.value,
-      },
-      () => {
-        this.commentValid();
-      }
-    );
+    this.setState({
+      comment: event.target.value,
+    });
   };
 
   commentValid() {
     const { comment } = this.state;
-    return comment.length > 0 ? true : false;
+    return comment.length > 0;
   }
 
   addComment = () => {
-    let token = localStorage.getItem('우리토큰') || '';
-    fetch('http://10.58.7.150:8000/posts/comment', {
-      headers: {
-        Authorization: token,
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        comment_post: this.state.comment,
-        post_id: '1',
-      }),
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log('결과:', result);
-      });
-
-    const { commentList, comment } = this.state;
-    if (this.commentValid() === true) {
-      this.setState({
-        commentList: commentList.concat({
-          content: comment,
-          userName: 'Dan_d',
+    if (this.commentValid()) {
+      let token = localStorage.getItem('우리토큰') || '';
+      fetch('http://10.58.3.17:8000/posts/comment', {
+        method: 'POST',
+        headers: {
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          comment_post: this.state.comment,
+          post_id: '1',
         }),
-        comment: '',
-      });
+      })
+        .then(res => res.json())
+        .then(result => {
+          console.log('결과:', result);
+          if (token) {
+            const { commentList, comment } = this.state;
+            this.setState({
+              commentList: commentList.concat({
+                content: comment,
+                userName: 'Dan_d',
+              }),
+              comment: '',
+            });
+          }
+        });
     }
   };
 
   handleButton = event => {
     event.preventDefault();
-    this.setState(() => {
-      this.addComment();
-    });
+    this.addComment();
   };
 
   handleKeyPress = event => {
     if (event.key === 'Enter' && !event.shiftKey) {
-      this.setState(() => {
-        this.addComment();
-      });
+      this.addComment();
     }
   };
 
@@ -88,11 +80,7 @@ class CommentList extends React.Component {
     return (
       <div className="area_comment">
         <div className="comments">
-          <div
-            id="commentList"
-            className="list_comment"
-            onChange={this.addComment}
-          >
+          <div className="list_comment" onChange={this.addComment}>
             {commentList.map(comment => {
               return (
                 <Comment
@@ -104,16 +92,15 @@ class CommentList extends React.Component {
               );
             })}
           </div>
-          <form id="post" className="post_comment">
+          <form className="post_comment">
             <textarea
-              id="newComment"
               type="input"
               placeholder="댓글 달기..."
               value={comment}
               onKeyPress={this.handleKeyPress}
               onChange={this.textChange}
-            ></textarea>
-            <button id="btnPost" type="submit" onClick={this.handleButton}>
+            />
+            <button type="submit" onClick={this.handleButton}>
               게시
             </button>
           </form>
