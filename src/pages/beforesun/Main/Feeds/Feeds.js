@@ -34,15 +34,9 @@ class Feeds extends React.Component {
     });
   };
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-      });
+    this.setState({
+      commentList: this.props.comments,
+    });
   }
   render() {
     const {
@@ -59,9 +53,8 @@ class Feeds extends React.Component {
       heartNum,
       feedText,
       time,
-      comments,
     } = this.props;
-    const { comment } = this.state;
+    const { comment, commentList } = this.state;
     return (
       <section className="feeds" key={id}>
         <article className="feeds-content">
@@ -122,8 +115,8 @@ class Feeds extends React.Component {
               </Link>
             </div>
             <ul>
-              {comments &&
-                comments.map(comment => {
+              {commentList &&
+                commentList.map(comment => {
                   return (
                     <Comment
                       userName={comment.userName}
