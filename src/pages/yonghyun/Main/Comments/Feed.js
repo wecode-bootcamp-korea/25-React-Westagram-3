@@ -38,12 +38,13 @@ class Feed extends React.Component {
 
   addComment = () => {
     const { content, replList, userName } = this.state;
+    const cnt = replList.length + 1;
     if (content.trim() === '' || content === '') {
       return;
     }
     this.setState({
       replList: replList.concat({
-        id: this.state.id++,
+        id: cnt,
         userName: userName,
         content: content.trim(),
       }),
@@ -65,14 +66,9 @@ class Feed extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const { id, userName, content, likeNumber, when } = this.props;
     const { like } = this.state;
-    const replL = this.state.replList.map(a => {
-      const { id, userName, content } = a;
-      return <DG id={id} userName={userName} content={content} />;
-    });
-
-    console.log(this.state);
     return (
       <>
         <header className="feedHead" key={id}>
@@ -130,7 +126,19 @@ class Feed extends React.Component {
         <div className="comments">
           <div className="commentFeed" id="other_re">
             <ul className="feedComment">
-              <ul id="addR">{replL}</ul>
+              <ul id="addR">
+                {this.state.replList.map(a => {
+                  const { id, userName, content } = a;
+                  return (
+                    <DG
+                      key={id}
+                      id={id}
+                      userName={userName}
+                      content={content}
+                    />
+                  );
+                })}
+              </ul>
             </ul>
           </div>
         </div>

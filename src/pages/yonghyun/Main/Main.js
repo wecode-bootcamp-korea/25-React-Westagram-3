@@ -24,20 +24,6 @@ class Main extends React.Component {
   }
 
   render() {
-    const feedL = this.state.feedList.map(a => {
-      const { id, userName, content, likeNumber, isLiked, when, comment } = a;
-      return (
-        <Feed
-          id={id}
-          userName={userName}
-          content={content}
-          likeNumber={likeNumber}
-          isLiked={isLiked}
-          when={when}
-          comment={comment}
-        />
-      );
-    });
     return (
       <>
         <Nav />
@@ -45,7 +31,31 @@ class Main extends React.Component {
           <div className="main">
             <div className="feeds">
               <div>
-                <article className="firstFeed">{feedL}</article>
+                <article className="firstFeed">
+                  {this.state.feedList.map(a => {
+                    const {
+                      id,
+                      userName,
+                      content,
+                      likeNumber,
+                      isLiked,
+                      when,
+                      comment,
+                    } = a;
+                    return (
+                      <Feed
+                        key={id}
+                        id={id}
+                        userName={userName}
+                        content={content}
+                        likeNumber={likeNumber}
+                        isLiked={isLiked}
+                        when={when}
+                        comment={comment}
+                      />
+                    );
+                  })}
+                </article>
               </div>
             </div>
             <Right />
