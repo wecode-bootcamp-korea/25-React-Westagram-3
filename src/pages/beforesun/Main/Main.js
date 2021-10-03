@@ -1,9 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import Feeds from './Feeds/Feeds';
 import Side from './Side/Side';
+import './Main.scss';
+
 class Main extends React.Component {
   constructor() {
     super();
@@ -11,8 +12,9 @@ class Main extends React.Component {
       feedList: [],
     };
   }
+
   componentDidMount() {
-    fetch('http://localhost:3000/data/FeedData.json', {
+    fetch('http:/data/FeedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -22,6 +24,7 @@ class Main extends React.Component {
         });
       });
   }
+
   render() {
     return (
       <div className="main-box">

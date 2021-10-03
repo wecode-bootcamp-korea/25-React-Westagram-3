@@ -1,16 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import './Comment.scss';
 class Comment extends React.Component {
   render() {
-    const { id, userName, content } = this.props;
     return (
       <>
-        <li className="comment-second" key={id}>
-          <div className="yous">
-            <a className="you-name" href="#x">
-              {userName}
-            </a>
-            <span className="comment-writ">{content}</span>
+        <li className="comment-second">
+          <div className="user">
+            <Link className="user-name" href="#x">
+              {this.props.userName}
+            </Link>
+            <span className="comment-writ">{this.props.content}</span>
           </div>
           <img
             alt="heart-like"

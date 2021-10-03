@@ -1,7 +1,8 @@
 import React from 'react';
-import './Feeds.scss';
-import Comment from './Comment/Comment';
 import { Link } from 'react-router-dom';
+import Comment from './Comment/Comment';
+import './Feeds.scss';
+
 class Feeds extends React.Component {
   constructor() {
     super();
@@ -10,11 +11,19 @@ class Feeds extends React.Component {
       commentList: [],
     };
   }
-  textChange = e => {
+
+  componentDidMount() {
+    this.setState({
+      commentList: this.props.comments,
+    });
+  }
+
+  changeText = e => {
     this.setState({
       comment: e.target.value,
     });
   };
+
   // 엔터키 활성화및 초기화
   handleKeyPress = e => {
     const { comment } = this.state;
@@ -22,6 +31,7 @@ class Feeds extends React.Component {
       this.handleComment();
     }
   };
+
   // 버튼 클릭시 댓글 state변경 후 다시 빈글자로 변환
   handleComment = () => {
     const { comment, commentList } = this.state;
@@ -33,14 +43,9 @@ class Feeds extends React.Component {
       comment: '',
     });
   };
-  componentDidMount() {
-    this.setState({
-      commentList: this.props.comments,
-    });
-  }
+
   render() {
     const {
-      id,
       subAlt,
       subSrc,
       feedUserId,
@@ -56,7 +61,7 @@ class Feeds extends React.Component {
     } = this.props;
     const { comment, commentList } = this.state;
     return (
-      <section className="feeds" key={id}>
+      <section className="feeds">
         <article className="feeds-content">
           <div className="title">
             <div className="my-box">
@@ -72,7 +77,7 @@ class Feeds extends React.Component {
               <img alt="more" src="/images/beforesun/more.png" />
             </Link>
           </div>
-          <img alt={mainAlt} src={mainSrc} />
+          <img alt={mainAlt} src={mainSrc} className="main-imgs" />
           <div className="icon-box">
             <div className="icon-left">
               <button>
@@ -137,7 +142,7 @@ class Feeds extends React.Component {
               type="text"
               placeholder="댓글 달기..."
               value={comment}
-              onChange={this.textChange}
+              onChange={this.changeText}
               onKeyPress={this.handleKeyPress}
             />
             <button

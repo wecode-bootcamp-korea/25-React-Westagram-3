@@ -2,16 +2,18 @@
   a {
     text-decoration: none;
   }
+
   input {
     outline-style: none;
   }
+
   button {
     cursor: pointer;
     background-color: white;
     border: 0;
     padding: 0;
   }
-  /* 메인 */
+
   .main-container {
     display: flex;
     justify-content: space-around;

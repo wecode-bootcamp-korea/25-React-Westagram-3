@@ -1,0 +1,42 @@
+.side-friend {
+  display: flex;
+  align-items: center;
+  margin: 5px 15px 8px;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+  }
+
+  .friend-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-size: 14px;
+
+    a {
+      color: black;
+      font-weight: bold;
+    }
+
+    span {
+      width: 180px;
+      color: #8e8e8e;
+      font-size: 13px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  button {
+    position: relative;
+    left: 7px;
+    color: #0095f6;
+    background-color: white;
+    border: 0;
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
