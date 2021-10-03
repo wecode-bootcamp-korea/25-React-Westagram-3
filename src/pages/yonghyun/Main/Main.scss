@@ -1,0 +1,493 @@
+$back-color: #ffffff;
+
+html,
+body {
+  height: 120%;
+  position: relative;
+  background-color: #fafafa;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin: 0 252px 0 252px;
+}
+
+.feeds {
+  display: flex;
+  width: 614px;
+  height: 100%;
+  margin-right: 28px;
+  margin-top: 100px;
+}
+
+.firstFeed {
+  position: relative;
+  height: 100%;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: $back-color;
+}
+
+.feedHead {
+  display: flex;
+  width: 90%;
+  height: 60px;
+  margin: 0 16px;
+  background-color: $back-color;
+}
+
+#feed_pic {
+  margin: auto 0;
+  border-radius: 50%;
+}
+
+.user1 {
+  margin: auto 0 auto 16px;
+  background-color: $back-color;
+  font-weight: 700;
+}
+
+.threeDot {
+  display: flex;
+  position: absolute;
+  height: 60px;
+  top: 0;
+  right: 2px;
+  background-color: $back-color;
+
+  button {
+    margin: auto 10px;
+
+    i {
+      font-size: 15px;
+      background-color: $back-color;
+    }
+  }
+}
+
+.pics {
+  background-color: $back-color;
+}
+
+#firstPic {
+  position: relative;
+  width: 614px;
+  height: 614px;
+  object-fit: cover;
+}
+
+.comment {
+  // height: 241px;
+  background-color: $back-color;
+}
+
+.heart2 {
+  height: 40px;
+  margin-top: 4px;
+  padding-left: 8px;
+  padding-right: 16px;
+  background-color: $back-color;
+}
+
+#emptyheart {
+  color: black;
+}
+
+#redheart {
+  position: relative;
+  top: -25px;
+  background-color: transparent;
+  color: red;
+  font-size: 26px;
+
+  &:hover {
+    cursor: grab;
+  }
+}
+
+#redheartX {
+  position: relative;
+  top: -25px;
+  background-color: transparent;
+  color: transparent;
+  font-size: 26px;
+
+  &:hover {
+    cursor: grab;
+  }
+}
+
+.icon_pack {
+  height: 40px;
+  background-color: $back-color;
+  text-align: left;
+}
+
+i.far {
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+#bookmark {
+  position: absolute;
+  right: 16px;
+}
+
+button {
+  display: inline;
+  width: 40px;
+  height: 40px;
+  border-width: 0px;
+  background-color: transparent;
+}
+
+.manyLike {
+  height: 18px;
+  margin-bottom: 8px;
+  margin-top: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $back-color;
+
+  div {
+    height: 17.5px;
+    background-color: $back-color;
+    font-weight: 600;
+    text-align: left;
+  }
+}
+
+.comments {
+  // transform: rotate(0.5turn);
+  padding-left: 16px;
+  padding-right: 16px;
+  // background-color: $back-color;
+  overflow: visible;
+}
+
+.comments_head {
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $back-color;
+}
+
+.commentFeed {
+  background-color: $back-color;
+  // transform: rotate(-0.5turn);
+}
+
+.feedComment {
+  list-style: none;
+  background-color: $back-color;
+
+  li {
+    background-color: $back-color;
+    line-height: 135%;
+  }
+}
+
+.comments p {
+  display: flex;
+  line-height: 140%;
+  background-color: $back-color;
+}
+
+.re_id {
+  margin: 0 5px auto 0;
+  color: black;
+  background-color: $back-color;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.re_p {
+  width: 410px;
+  margin: auto 5px;
+  background-color: $back-color;
+  word-break: break-all;
+}
+
+.erase:hover {
+  color: red;
+  cursor: grab;
+}
+
+.re_heart {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  right: 10px;
+
+  i {
+    margin: auto 5px;
+    font-size: 12px;
+
+    &:hover {
+      margin: auto 5px;
+      color: red;
+      font-size: 12px;
+    }
+  }
+}
+
+#addR {
+  background-color: $back-color;
+  list-style: none;
+
+  li {
+    background-color: $back-color;
+    margin-top: 3px;
+  }
+}
+
+.deleteBtn {
+  position: absolute;
+  width: 550px;
+  height: 21px;
+  right: 0;
+  color: transparent;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  i {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.delete {
+  position: absolute;
+  right: 50px;
+  width: 30px;
+  font-size: 15px;
+  color: transparent;
+  background-color: $back-color;
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+#like {
+  color: red;
+  font-size: 15px;
+  position: absolute;
+  right: 20px;
+  margin-top: 2px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#dislike {
+  font-size: 15px;
+  position: absolute;
+  right: 20px;
+  margin-top: 2px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.other_re {
+  margin-top: 5px;
+  background-color: $back-color;
+}
+
+.howLong {
+  height: 19px;
+  margin-top: 17px;
+  margin-bottom: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $back-color;
+
+  div {
+    height: 12.5px;
+    color: #c3c3c3;
+    background-color: $back-color;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
+
+.write {
+  display: flex;
+  height: 40px;
+  margin-top: 4px;
+  padding-right: 16px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: $back-color;
+
+  button {
+    margin: auto 5px;
+  }
+}
+
+.addComment {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  background-color: $back-color;
+}
+
+#writeComment {
+  width: 100%;
+  margin: auto 0 auto 4px;
+  padding-left: 0;
+  border-color: transparent;
+  background-color: $back-color;
+}
+
+#writeBtn {
+  display: flex;
+  position: relative;
+  margin: auto 0 auto 5px;
+  justify-content: flex-end;
+  align-items: center;
+  color: #0095f6;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+article {
+  background-color: transparent;
+}
+
+.main-right {
+  position: relative;
+  width: 293px;
+  height: 500px;
+  margin-top: 100px;
+}
+
+.my_id {
+  display: flex;
+  justify-content: flex-start;
+  height: 66px;
+}
+
+.pic_name {
+  margin: auto 12px;
+}
+
+.pic_id {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.pic_desc {
+  color: rgb(158, 158, 158);
+  font-size: 16px;
+}
+
+.changeProfile {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  margin: 13px 0 13px 20px;
+  color: #0095f6;
+  cursor: pointer;
+}
+
+.friends_name {
+  display: block;
+  margin: auto 16px;
+}
+
+.friends_id {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.friendsdesc {
+  color: rgb(158, 158, 158);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.follow {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  margin: 5px 0 5px 20px;
+  width: 50px;
+  color: #0095f6;
+  cursor: pointer;
+}
+
+.id_pic {
+  width: 57px;
+  height: 57px;
+  margin: 2.5px;
+  border-radius: 50%;
+}
+
+.story {
+  display: flex;
+  width: 66px;
+  height: 66px;
+  border: 2px solid #d32b80;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.friends_list {
+  height: 290px;
+}
+
+.friends_text {
+  height: 19px;
+  margin-top: 10px;
+
+  p {
+    color: rgb(158, 158, 158);
+    font-weight: 700;
+    text-align: left;
+  }
+}
+
+.friends_desc {
+  height: 256px;
+  margin-top: 5px;
+}
+
+.people {
+  display: flex;
+  height: 50px;
+}
+
+.friends_pic {
+  margin: 8px 10px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.desc {
+  height: 102px;
+}
+
+#etc,
+#instaface {
+  margin-top: 15px;
+  color: rgb(158, 158, 158);
+  font-size: 13px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: inherit;
+}
