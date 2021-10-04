@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Playball&family=Timmana&display=swap');
+
+@mixin logo {
+  font-weight: bolder;
+  font-family: 'Playball', cursive;
+  color: black;
+}
+
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/* body */
+
+body {
+  background-color: rgb(245, 245, 245);
+}
+
+/* for auto-complete */
+
+.searchList {
+  position: absolute;
+  top: 45px;
+  width: 210px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+
+  li {
+    border: 1px solid lightgray;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* for profile menu : toggle */
+
+.profileMenu {
+  position: absolute;
+  top: 45px;
+  width: 200px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+
+  i {
+    width: 30px;
+  }
+
+  li {
+    @include flex(flex-start, center);
+    width: 160px;
+    font-size: 14px;
+    padding: 13px 20px;
+
+    &:nth-child(4) {
+      border-top: 1px solid lightgray;
+      margin-top: 5px;
+    }
+  }
+}
+
+// Main Component
+
+.Main {
+  @include flex(center, flex-start);
+  gap: 30px;
+  width: 100%;
+  height: 1500px;
+
+  /* main.feed */
+
+  main {
+    @include flex(flex-start, center);
+    margin-top: 7vh;
+    flex-direction: column;
+  }
+
+  /* aside */
+
+  aside {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 7vh;
+    width: 367px;
+  }
+
+  /* aside : story */
+
+  .asideBox {
+    width: 100%;
+    padding: 0 20px;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    overflow: hidden;
+  }
+
+  .storyHeader,
+  .followHeader {
+    @include flex(space-between);
+    margin: 20px 0px;
+  }
+
+  h3 {
+    color: gray;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .seeAll {
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .time,
+  .root,
+  .explain {
+    width: 200px;
+    color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* aside : follow */
+
+  .accountLeft {
+    @include flex(flex-start);
+    gap: 10px;
+  }
+
+  .followList {
+    @include flex(space-between);
+  }
+
+  .isFollow {
+    color: rgb(0, 149, 246);
+    font-weight: bold;
+  }
+
+  .account {
+    @include flex(flex-start, center);
+    gap: 10px;
+    height: 56px;
+  }
+
+  .textLine {
+    display: inline;
+    font-weight: bolder;
+    font-size: 12px;
+  }
+
+  /* 반응형 */
+
+  @media screen and (max-width: 1000px) {
+    aside {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@mixin logo {
+  font-weight: bolder;
+  font-family: 'Playball', cursive;
+  color: black;
+}
+
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.feed {
+  article {
+    margin-bottom: 2vh;
+    width: 600px;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+  }
+
+  /* article */
+
+  .writerArea {
+    @include flex(space-between, center);
+    padding: 10px 20px;
+  }
+
+  /* main img */
+
+  .mainPhoto {
+    width: 100%;
+    max-height: 750px;
+    object-fit: cover;
+  }
+
+  /* User interface : buttons, comment, etc... */
+
+  .feedBtns {
+    @include flex(space-between, center);
+    padding: 8px 16px;
+    font-size: x-large;
+  }
+
+  .btnLeft i {
+    padding: 0px 2px;
+  }
+
+  .likeCount {
+    display: block;
+    margin: 0 0 8px;
+    padding: 8px 16px;
+    color: black;
+    font-weight: bold;
+    font-size: small;
+  }
+
+  /* post */
+
+  .postArea {
+    @include flex();
+  }
+
+  .content {
+    margin-left: 6px;
+  }
+
+  .postArea {
+    @include flex(flex-start);
+    padding: 0 16px;
+    margin-bottom: 7px;
+    font-size: small;
+  }
+
+  button.moreSee {
+    margin-left: 10px;
+    color: gray;
+  }
+}

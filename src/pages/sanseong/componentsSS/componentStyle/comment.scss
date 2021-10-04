@@ -1,0 +1,74 @@
+@mixin logo {
+  font-weight: bolder;
+  font-family: 'Playball', cursive;
+  color: black;
+}
+
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.feed {
+  .comment {
+    @include flex(flex-start);
+    padding: 0 16px;
+    margin-bottom: 7px;
+    font-size: small;
+  }
+
+  .commentList {
+    @include flex(flex-start);
+    flex-direction: column;
+    padding: 0 16px;
+    font-size: small;
+    margin-top: 8px;
+  }
+
+  span.time {
+    display: inline-block;
+    padding: 8px 16px;
+    padding-bottom: 12px;
+    font-size: x-small;
+    color: rgb(194, 194, 194);
+  }
+
+  .commentArea {
+    @include flex(space-between);
+    margin: 13px 0;
+    padding: 0 16px;
+  }
+
+  #commentText {
+    width: 90%;
+    resize: none;
+    border: 0;
+    outline: none;
+  }
+
+  #commentBtn {
+    border: 0;
+    background-color: transparent;
+    color: skyblue;
+  }
+
+  .fa-trash-alt,
+  .likeBtn {
+    margin-left: 3px;
+    font-size: 20px;
+    color: rgb(66, 66, 66);
+  }
+
+  .fa-trash-alt:hover,
+  .likeBtn:hover {
+    color: gray;
+  }
+
+  /* like toggle */
+
+  .onLike {
+    color: rgb(129, 0, 0);
+    transition: 1s;
+  }
+}
