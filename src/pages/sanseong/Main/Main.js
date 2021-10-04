@@ -1,11 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
-import '../../../components/Nav/Nav.scss';
 import Story from '../componentsSS/story';
 import Feed from '../componentsSS/feed';
 import Suggest from '../componentsSS/suggest';
+import './Main.scss';
 
 class Main extends React.Component {
   constructor() {
@@ -16,7 +15,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedData.json', {
+    fetch('http:/data/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -28,17 +27,25 @@ class Main extends React.Component {
   }
 
   render() {
-    const feedList = this.state.feeds.map(data => {
-      const { id, writer, img, text, comment } = data;
-      return (
-        <Feed id={id} writer={writer} img={img} text={text} comment={comment} />
-      );
-    });
+    const { feeds } = this.state;
     return (
       <>
         <Nav />
         <div className="Main">
-          <main className="feed">{feedList}</main>
+          <main className="feed">
+            {feeds.map(data => {
+              const { id, writer, img, text, comment } = data;
+              return (
+                <Feed
+                  key={id}
+                  writer={writer}
+                  img={img}
+                  text={text}
+                  comment={comment}
+                />
+              );
+            })}
+          </main>
           <aside>
             <section className="account">
               <img

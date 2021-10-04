@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -42,7 +41,6 @@ class Login extends React.Component {
 
   render() {
     const isEnabled = this.isValid();
-    const btnOpacity = this.isValid() ? 1 : 0.6;
     return (
       <div className="Login">
         <div className="container">
@@ -59,7 +57,7 @@ class Login extends React.Component {
               class="login"
               onClick={this.goToMain}
               disabled={!isEnabled}
-              style={{ opacity: btnOpacity }}
+              style={{ opacity: isEnabled ? 1 : 0.6 }}
             >
               Log In
             </button>

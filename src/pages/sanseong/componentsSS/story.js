@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
 class Story extends React.Component {
   constructor() {
@@ -20,17 +20,20 @@ class Story extends React.Component {
       });
   }
   render() {
-    const userData = this.state.story;
-    const userList = userData.map((user, idx) => (
-      <div className="account">
-        <img alt="user" src={user.img} />
-        <div className="textLine">
-          <div className="name">{user.name}</div>
-          <div className="time">{`${(idx + 1) * 10}` + '분'}</div>
-        </div>
-      </div>
-    ));
-    return <>{userList}</>;
+    const { story } = this.state;
+    return (
+      <>
+        {story.map(user => (
+          <div className="account" key={user.id}>
+            <img alt="user" src={user.img} />
+            <div className="textLine">
+              <div className="name">{user.name}</div>
+              <div className="time">{`${(user.id + 1) * 10}` + '분'}</div>
+            </div>
+          </div>
+        ))}
+      </>
+    );
   }
 }
 

@@ -18,13 +18,6 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
-.Main {
-  @include flex(center, flex-start);
-  width: 100%;
-  gap: 30px;
-  height: 1500px;
-}
-
 /* for auto-complete */
 
 .searchList {
@@ -70,221 +63,102 @@ body {
   }
 }
 
-/* main.feed */
+// Main Component
 
 .Main {
+  @include flex(center, flex-start);
+  gap: 30px;
+  width: 100%;
+  height: 1500px;
+
+  /* main.feed */
+
   main {
     @include flex(flex-start, center);
+    margin-top: 7vh;
     flex-direction: column;
-    gap: 30px;
   }
 
-  article {
-    width: 600px;
-    margin-top: 8vh;
+  /* aside */
+
+  aside {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 7vh;
+    width: 367px;
+  }
+
+  /* aside : story */
+
+  .asideBox {
+    width: 100%;
+    padding: 0 20px;
     background-color: white;
     border: 1px solid rgb(219, 219, 219);
-    border-radius: 4px;
+    overflow: hidden;
   }
-}
 
-/* article */
+  .storyHeader,
+  .followHeader {
+    @include flex(space-between);
+    margin: 20px 0px;
+  }
 
-.writerArea {
-  @include flex(space-between, center);
-  padding: 10px 20px;
-}
+  h3 {
+    color: gray;
+    font-size: 14px;
+    font-weight: normal;
+  }
 
-/* main img */
+  .seeAll {
+    font-weight: bold;
+    font-size: 15px;
+  }
 
-.mainPhoto {
-  width: 100%;
-  max-height: 750px;
-  object-fit: cover;
-}
+  .time,
+  .root,
+  .explain {
+    width: 200px;
+    color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-/* User interface : buttons, comment, etc... */
+  /* aside : follow */
 
-.feedBtns {
-  @include flex(space-between, center);
-  padding: 8px 16px;
-  font-size: x-large;
-}
+  .accountLeft {
+    @include flex(flex-start);
+    gap: 10px;
+  }
 
-.btnLeft i {
-  padding: 0px 2px;
-}
+  .followList {
+    @include flex(space-between);
+  }
 
-.likeCount {
-  display: block;
-  margin: 0 0 8px;
-  padding: 8px 16px;
-  color: black;
-  font-weight: bold;
-  font-size: small;
-}
+  .isFollow {
+    color: rgb(0, 149, 246);
+    font-weight: bold;
+  }
 
-/* post */
+  .account {
+    @include flex(flex-start, center);
+    gap: 10px;
+    height: 56px;
+  }
 
-.postArea {
-  @include flex();
-}
+  .textLine {
+    display: inline;
+    font-weight: bolder;
+    font-size: 12px;
+  }
 
-.content {
-  margin-left: 6px;
-}
+  /* 반응형 */
 
-/* for addComment */
-
-.postArea,
-.comment {
-  @include flex(flex-start);
-  padding: 0 16px;
-  margin-bottom: 7px;
-  font-size: small;
-}
-
-.commentList {
-  @include flex(flex-start);
-  flex-direction: column;
-  padding: 0 16px;
-  font-size: small;
-  margin-top: 8px;
-}
-
-button.moreSee {
-  margin-left: 10px;
-  color: gray;
-}
-
-span.time {
-  display: inline-block;
-  padding: 8px 16px;
-  padding-bottom: 12px;
-  font-size: x-small;
-  color: rgb(194, 194, 194);
-}
-
-.commentArea {
-  @include flex(space-between);
-  margin: 13px 0;
-  padding: 0 16px;
-}
-
-#commentText {
-  width: 90%;
-  resize: none;
-  border: 0;
-  outline: none;
-}
-
-#commentBtn {
-  border: 0;
-  background-color: transparent;
-  color: skyblue;
-}
-
-.fa-trash-alt,
-.likeBtn {
-  margin-left: 3px;
-  font-size: 20px;
-  color: rgb(66, 66, 66);
-}
-
-.fa-trash-alt:hover,
-.likeBtn:hover {
-  color: gray;
-}
-
-/* like toggle */
-
-.onLike {
-  color: rgb(129, 0, 0);
-  transition: 1s;
-}
-
-/* aside */
-
-.Main aside {
-  @include flex(flex-start, flex-start);
-  flex-direction: column;
-  gap: 15px;
-  width: 367px;
-  margin-top: 8vh;
-}
-
-/* aside : account */
-
-.account,
-.searchList li {
-  @include flex(flex-start, center);
-  gap: 10px;
-  height: 56px;
-}
-
-.textLine {
-  display: inline;
-  font-weight: bolder;
-  font-size: 12px;
-}
-
-/* aside : story */
-
-.asideBox {
-  width: 100%;
-  padding: 0 20px;
-  background-color: white;
-  border: 1px solid rgb(219, 219, 219);
-  overflow: hidden;
-}
-
-.storyHeader,
-.followHeader {
-  @include flex(space-between);
-  margin: 20px 0px;
-}
-
-h3 {
-  color: gray;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-.seeAll {
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.time,
-.root,
-.explain {
-  width: 200px;
-  color: gray;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* aside : follow */
-
-.accountLeft {
-  @include flex(flex-start);
-  gap: 10px;
-}
-
-.followList {
-  @include flex(space-between);
-}
-
-.isFollow {
-  color: rgb(0, 149, 246);
-  font-weight: bold;
-}
-
-/* 반응형 */
-
-@media screen and (max-width: 1000px) {
-  aside {
-    display: none;
+  @media screen and (max-width: 1000px) {
+    aside {
+      display: none;
+    }
   }
 }

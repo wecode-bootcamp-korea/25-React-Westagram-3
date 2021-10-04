@@ -1,11 +1,12 @@
 import React from 'react';
 import Comment from './comment';
+import './componentStyle/feed.scss';
 
 class Feed extends React.Component {
   render() {
     const { id, writer, img, text, comment } = this.props;
     return (
-      <article key={id}>
+      <article>
         <section className="writerArea">
           <div className="account">
             <img

@@ -1,20 +1,24 @@
 [
   {
+    "id": 0,
     "name": "fairy_yoon",
     "role": "FrontEndDev",
     "img": "https://ca.slack-edge.com/TH0U6FBTN-U0288815M5L-83cffa237ed7-512"
   },
   {
+    "id": 1,
     "name": "mj_bro",
     "role": "FrontEndDev",
     "img": "https://ca.slack-edge.com/TH0U6FBTN-U028F6M33TM-0b35e2ac4357-512"
   },
   {
+    "id": 2,
     "name": "before_sun",
     "role": "FrontEndDev",
     "img": "https://ca.slack-edge.com/TH0U6FBTN-U028TKWDUGZ-127382dc96e8-512"
   },
   {
+    "id": 3,
     "name": "zzoozzoo_boy",
     "role": "FrontEndDev",
     "img": "https://ca.slack-edge.com/TH0U6FBTN-U028F6LHV2P-2b70ab7b7419-512"

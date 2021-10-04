@@ -21,22 +21,23 @@ class Suggest extends React.Component {
   }
 
   render() {
-    const userData = this.state.suggest;
-    const userList = userData.map(user => (
+    const { suggest } = this.state;
+    return (
       <>
-        <div className="account">
-          <img alt="user" src={user.img} />
-          <div className="textLine">
-            <div className="name">{user.name}</div>
-            <div className="root">
-              zzoozzoo_boy님 외 2명이 팔로우 하고 있습니다.
+        {suggest.map(user => (
+          <>
+            <div className="account" key={user.id}>
+              <img alt="user" src={user.img} />
+              <div className="textLine">
+                <div className="name">{user.name}</div>
+                <div className="root">{user.text}</div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="isFollow">Follow</div>
+            <div className="isFollow">Follow</div>
+          </>
+        ))}
       </>
-    ));
-    return <>{userList}</>;
+    );
   }
 }
 
